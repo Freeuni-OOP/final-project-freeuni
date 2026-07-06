@@ -4,10 +4,10 @@ services:
     ports:
       - "8080:8080"
     depends_on:
-      - db
+      db:
+        condition: service_healthy
     environment:
-      # the backend will read these in #9 (DataSource); "db" is the MySQL service name below
-      DB_URL: jdbc:mysql://db:3306/oophotel
+      DB_URL: "jdbc:mysql://db:3306/oophotel?allowPublicKeyRetrieval=true&useSSL=false&serverTimezone=UTC"
       DB_USER: oophotel
       DB_PASSWORD: oophotel
 
@@ -23,8 +23,13 @@ services:
       - "3307:3306"
     volumes:
       - db_data:/var/lib/mysql
-      # in #9 we uncomment this so schema.sql auto-loads on first start:
-      # - ./database:/docker-entrypoint-initdb.d
+      # load schema.sql on first DB start
+      - ./database:/docker-entrypoint-initdb.d
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-uroot", "-prootpass"]
+      interval: 5s
+      timeout: 3s
+      retries: 12
 
 volumes:
   db_data:
