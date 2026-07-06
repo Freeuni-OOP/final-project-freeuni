@@ -1,0 +1,30 @@
+services:
+  app:
+    build: .
+    ports:
+      - "8080:8080"
+    depends_on:
+      - db
+    environment:
+      # the backend will read these in #9 (DataSource); "db" is the MySQL service name below
+      DB_URL: jdbc:mysql://db:3306/oophotel
+      DB_USER: oophotel
+      DB_PASSWORD: oophotel
+
+  db:
+    image: mysql:8.4
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpass
+      MYSQL_DATABASE: oophotel
+      MYSQL_USER: oophotel
+      MYSQL_PASSWORD: oophotel
+    ports:
+      # host 3307 -> container 3306 (avoids clashing with a local MySQL already on 3306)
+      - "3307:3306"
+    volumes:
+      - db_data:/var/lib/mysql
+      # in #9 we uncomment this so schema.sql auto-loads on first start:
+      # - ./database:/docker-entrypoint-initdb.d
+
+volumes:
+  db_data:
