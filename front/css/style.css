@@ -301,15 +301,15 @@
 }
 
 .room-img-base {
-  background-image: url("../images/room-deluxe.png");
+  background-image: url("../images/room-base.png");
 }
 
 .room-img-comfort {
-  background-image: url("../images/room-suite.png");
+  background-image: url("../images/room-comfort.png");
 }
 
 .room-img-premium {
-  background-image: url("../images/room-villa.png");
+  background-image: url("../images/room-premium.png");
 }
 
 .room-badge {
