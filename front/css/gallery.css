@@ -1,0 +1,214 @@
+/* Gallery page. Uses the shared nav and footer from style.css. */
+
+#navigation {
+  position: relative;
+}
+
+.gallery-header {
+  text-align: center;
+  padding: 4rem 2rem 2rem;
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+.gallery-title {
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  margin: 0.5rem 0 1rem;
+}
+
+.gallery-subtitle {
+  font-size: 16px;
+  color: var(--muted);
+}
+
+.gallery-filters {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  padding: 0 2rem 2.5rem;
+}
+
+.filter-pill {
+  font-family: inherit;
+  font-size: 13px;
+  background: none;
+  border: 1px solid var(--border);
+  color: var(--muted);
+  padding: 0.5rem 1.1rem;
+  cursor: pointer;
+  transition: border-color 0.2s, color 0.2s, background 0.2s;
+}
+
+.filter-pill:hover {
+  border-color: var(--accent);
+  color: var(--ink);
+}
+
+.filter-pill.active {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: white;
+}
+
+.gallery-grid {
+  column-count: 3;
+  column-gap: 4px;
+  padding: 0 4px 4rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.gal-tile {
+  break-inside: avoid;
+  margin-bottom: 4px;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.gal-tile img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+
+.gal-tile.wide img {
+  aspect-ratio: 4 / 5;
+}
+
+.gal-tile::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(20, 19, 17, 0.35);
+  opacity: 0;
+  transition: opacity 0.25s;
+}
+
+.gal-tile figcaption {
+  position: absolute;
+  left: 1rem;
+  bottom: 0.9rem;
+  font-size: 1rem;
+  color: white;
+  opacity: 0;
+  transition: opacity 0.25s;
+}
+
+.gal-tile:hover::before,
+.gal-tile:hover figcaption {
+  opacity: 1;
+}
+
+.gal-tile.hidden-tile {
+  display: none;
+}
+
+.gallery-empty {
+  text-align: center;
+  font-size: 15px;
+  color: var(--muted);
+  padding: 3rem 0 5rem;
+}
+
+.gallery-empty.hidden {
+  display: none;
+}
+
+.lightbox {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 200;
+  background: rgba(20, 19, 17, 0.95);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.25s;
+}
+
+.lightbox.open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.lightbox-img {
+  max-width: 90%;
+  max-height: 80vh;
+}
+
+.lightbox-caption {
+  position: absolute;
+  bottom: 2rem;
+  left: 0;
+  right: 0;
+  text-align: center;
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.lightbox-close,
+.lightbox-nav {
+  position: absolute;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: rgba(255, 255, 255, 0.6);
+  transition: color 0.2s;
+}
+
+.lightbox-close:hover,
+.lightbox-nav:hover {
+  color: white;
+}
+
+.lightbox-close {
+  top: 1.3rem;
+  right: 1.8rem;
+  font-size: 2.2rem;
+  line-height: 1;
+}
+
+.lightbox-nav {
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 2.6rem;
+  line-height: 1;
+  padding: 0.5rem 1rem;
+}
+
+.lightbox-prev {
+  left: 0.5rem;
+}
+
+.lightbox-next {
+  right: 0.5rem;
+}
+
+@media (max-width: 900px) {
+  .gallery-grid {
+    column-count: 2;
+  }
+
+  .navbar-links {
+    display: none;
+  }
+}
+
+@media (max-width: 560px) {
+  .gallery-grid {
+    column-count: 1;
+  }
+
+  .gallery-header {
+    padding: 3rem 1.5rem 2rem;
+  }
+}
