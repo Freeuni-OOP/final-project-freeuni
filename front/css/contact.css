@@ -1,0 +1,134 @@
+/* Contact page. Uses the shared nav and footer from style.css. */
+
+#navigation {
+  position: relative;
+}
+
+.contact-header {
+  text-align: center;
+  padding: 4rem 2rem 2.5rem;
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.contact-title {
+  font-size: clamp(1.9rem, 4.5vw, 2.8rem);
+  margin: 0.5rem 0 1rem;
+}
+
+.contact-subtitle {
+  font-size: 16px;
+  color: var(--muted);
+}
+
+.contact-layout {
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  max-width: 1200px;
+  margin: 0 auto;
+  border-top: 1px solid var(--border);
+}
+
+.contact-info {
+  padding: 3rem;
+  border-right: 1px solid var(--border);
+}
+
+.info-block {
+  margin-bottom: 1.5rem;
+}
+
+.info-label {
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 0.3rem;
+}
+
+.info-value {
+  font-size: 15px;
+}
+
+.info-value a {
+  transition: color 0.2s;
+}
+
+.info-value a:hover {
+  color: var(--accent);
+}
+
+.contact-map {
+  margin-top: 2rem;
+  border: 1px solid var(--border);
+  height: 280px;
+  overflow: hidden;
+}
+
+.contact-map iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.contact-form-panel {
+  padding: 3rem;
+  background: var(--alt);
+}
+
+.form-heading {
+  font-size: 1.6rem;
+  margin-bottom: 0.4rem;
+}
+
+.form-sub {
+  font-size: 14px;
+  color: var(--muted);
+  margin-bottom: 1.8rem;
+}
+
+.field-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.2rem;
+}
+
+.field textarea {
+  resize: vertical;
+  min-height: 110px;
+}
+
+.field select {
+  cursor: pointer;
+}
+
+@media (max-width: 900px) {
+  .contact-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-info {
+    border-right: none;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .navbar-links {
+    display: none;
+  }
+}
+
+@media (max-width: 560px) {
+  .contact-header {
+    padding: 3rem 1.5rem 2rem;
+  }
+
+  .contact-info,
+  .contact-form-panel {
+    padding: 2rem 1.6rem;
+  }
+
+  .field-grid {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+}
