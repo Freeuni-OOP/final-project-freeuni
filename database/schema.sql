@@ -1,15 +1,82 @@
--- Rooms table
+-- Rooms table (აქ id იქნება კონკრეტული ოთახის ნომერი!)
 CREATE TABLE IF NOT EXISTS rooms (
-    id              INT AUTO_INCREMENT PRIMARY KEY,
-    type            VARCHAR(50)   NOT NULL,
-    name            VARCHAR(100)  NOT NULL,
-    description     TEXT,
-    price_per_night DECIMAL(10,2) NOT NULL,
-    capacity        INT           NOT NULL
-);
+        id              INT PRIMARY KEY, -- AUTO_INCREMENT მოვაშორეთ, რომ ნომრები ჩვენვე მივცეთ
+        type            VARCHAR(50)   NOT NULL,
+        name            VARCHAR(100)  NOT NULL,
+        description     TEXT,
+        price_per_night DECIMAL(10,2) NOT NULL,
+        capacity        INT           NOT NULL
+    );
 
--- Sample rooms
-INSERT INTO rooms (type, name, description, price_per_night, capacity) VALUES
-    ('Deluxe', 'Deluxe Mountain View', 'Stone floors, linen curtains, private terrace, king bed.', 220.00, 2),
-    ('Suite',  'Junior Suite',         'Living room with fireplace, canopied bed, private courtyard.', 380.00, 3),
-    ('Villa',  'Garden Villa',         'Private walled garden, small pool, two bedrooms.', 680.00, 4);
+-- ავტომატურად ჩავყაროთ 10-10 ოთახი თითოეულ ტიპში
+INSERT INTO rooms (id, type, name, description, price_per_night, capacity)
+VALUES
+        -- 10 ცალი Deluxe ოთახი (ნომრები 101-დან 110-მდე)
+        (101, 'Deluxe', 'Deluxe Mountain View', 'Stone floors, linen curtains, private terrace, king bed.', 220.00, 2),
+        (102, 'Deluxe', 'Deluxe Mountain View', 'Stone floors, linen curtains, private terrace, king bed.', 220.00, 2),
+        (103, 'Deluxe', 'Deluxe Mountain View', 'Stone floors, linen curtains, private terrace, king bed.', 220.00, 2),
+        (104, 'Deluxe', 'Deluxe Mountain View', 'Stone floors, linen curtains, private terrace, king bed.', 220.00, 2),
+        (105, 'Deluxe', 'Deluxe Mountain View', 'Stone floors, linen curtains, private terrace, king bed.', 220.00, 2),
+        (106, 'Deluxe', 'Deluxe Mountain View', 'Stone floors, linen curtains, private terrace, king bed.', 220.00, 2),
+        (107, 'Deluxe', 'Deluxe Mountain View', 'Stone floors, linen curtains, private terrace, king bed.', 220.00, 2),
+        (108, 'Deluxe', 'Deluxe Mountain View', 'Stone floors, linen curtains, private terrace, king bed.', 220.00, 2),
+        (109, 'Deluxe', 'Deluxe Mountain View', 'Stone floors, linen curtains, private terrace, king bed.', 220.00, 2),
+        (110, 'Deluxe', 'Deluxe Mountain View', 'Stone floors, linen curtains, private terrace, king bed.', 220.00, 2),
+
+        -- 10 ცალი Junior Suite (ნომრები 201-დან 210-მდე)
+        (201, 'Suite',  'Junior Suite',         'Living room with fireplace, canopied bed, private courtyard.', 380.00, 3),
+        (202, 'Suite',  'Junior Suite',         'Living room with fireplace, canopied bed, private courtyard.', 380.00, 3),
+        (203, 'Suite',  'Junior Suite',         'Living room with fireplace, canopied bed, private courtyard.', 380.00, 3),
+        (204, 'Suite',  'Junior Suite',         'Living room with fireplace, canopied bed, private courtyard.', 380.00, 3),
+        (205, 'Suite',  'Junior Suite',         'Living room with fireplace, canopied bed, private courtyard.', 380.00, 3),
+        (206, 'Suite',  'Junior Suite',         'Living room with fireplace, canopied bed, private courtyard.', 380.00, 3),
+        (207, 'Suite',  'Junior Suite',         'Living room with fireplace, canopied bed, private courtyard.', 380.00, 3),
+        (208, 'Suite',  'Junior Suite',         'Living room with fireplace, canopied bed, private courtyard.', 380.00, 3),
+        (209, 'Suite',  'Junior Suite',         'Living room with fireplace, canopied bed, private courtyard.', 380.00, 3),
+        (210, 'Suite',  'Junior Suite',         'Living room with fireplace, canopied bed, private courtyard.', 380.00, 3),
+
+        -- 10 ცალი Garden Villa (ნომრები 301-დან 310-მდე)
+        (301, 'Villa',  'Garden Villa',         'Private walled garden, small pool, two bedrooms.', 680.00, 4),
+        (302, 'Villa',  'Garden Villa',         'Private walled garden, small pool, two bedrooms.', 680.00, 4),
+        (303, 'Villa',  'Garden Villa',         'Private walled garden, small pool, two bedrooms.', 680.00, 4),
+        (304, 'Villa',  'Garden Villa',         'Private walled garden, small pool, two bedrooms.', 680.00, 4),
+        (305, 'Villa',  'Garden Villa',         'Private walled garden, small pool, two bedrooms.', 680.00, 4),
+        (306, 'Villa',  'Garden Villa',         'Private walled garden, small pool, two bedrooms.', 680.00, 4),
+        (307, 'Villa',  'Garden Villa',         'Private walled garden, small pool, two bedrooms.', 680.00, 4),
+        (308, 'Villa',  'Garden Villa',         'Private walled garden, small pool, two bedrooms.', 680.00, 4),
+        (309, 'Villa',  'Garden Villa',         'Private walled garden, small pool, two bedrooms.', 680.00, 4),
+        (310, 'Villa',  'Garden Villa',         'Private walled garden, small pool, two bedrooms.', 680.00, 4);
+
+-- Users table
+CREATE TABLE IF NOT EXISTS users (
+    id              INT AUTO_INCREMENT PRIMARY KEY,
+    email           VARCHAR(150)  NOT NULL UNIQUE,
+    password_hash   VARCHAR(255)  NOT NULL,
+    full_name       VARCHAR(150)  NOT NULL,
+    created_at      TIMESTAMP     NOT NULL DEFAULT CURRENT_TIMESTAMP
+    );
+
+-- Bookings table
+CREATE TABLE IF NOT EXISTS bookings (
+    id              INT AUTO_INCREMENT PRIMARY KEY,
+    room_id         INT           NOT NULL,
+    user_id         INT           NOT NULL,
+    check_in        DATE          NOT NULL,
+    check_out       DATE          NOT NULL,
+     status         VARCHAR(20)   NOT NULL DEFAULT 'CONFIRMED',
+    created_at      TIMESTAMP     NOT NULL DEFAULT CURRENT_TIMESTAMP,
+
+    CONSTRAINT fk_bookings_room
+    FOREIGN KEY (room_id) REFERENCES rooms(id)
+    ON DELETE CASCADE,
+
+    CONSTRAINT fk_bookings_user
+    FOREIGN KEY (user_id) REFERENCES users(id)
+    ON DELETE CASCADE,
+
+    CONSTRAINT chk_dates
+    CHECK (check_out > check_in)
+    );
+
+CREATE INDEX idx_bookings_room_dates ON bookings (room_id, check_in, check_out);
+CREATE INDEX idx_bookings_user ON bookings (user_id);
