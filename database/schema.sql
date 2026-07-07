@@ -50,9 +50,12 @@ VALUES
 -- Users table
 CREATE TABLE IF NOT EXISTS users (
     id              INT AUTO_INCREMENT PRIMARY KEY,
+    first_name      VARCHAR(100)  NOT NULL,
+    last_name       VARCHAR(100)  NOT NULL,
     email           VARCHAR(150)  NOT NULL UNIQUE,
     password_hash   VARCHAR(255)  NOT NULL,
-    full_name       VARCHAR(150)  NOT NULL,
+    date_of_birth   DATE,
+    role            VARCHAR(20)   NOT NULL DEFAULT 'USER',
     created_at      TIMESTAMP     NOT NULL DEFAULT CURRENT_TIMESTAMP
     );
 
