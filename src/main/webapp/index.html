@@ -17,7 +17,10 @@
         <li><a href="#reviews">Reviews</a></li>
         <li><a href="contact.html">Contact</a></li>
     </ul>
-    <a href="login.html" class="navbar-booking">Reserve</a>
+    <div class="navbar-user" id="navbar-user">
+        <!-- filled by main.js based on session -->
+        <a href="login.html" class="navbar-booking" id="nav-signin-btn">Sign in</a>
+    </div>
 </nav>
 
 <section id="hero">
@@ -260,5 +263,6 @@
 </footer>
 
 <script src="js/main.js"></script>
+<script src="js/auth-nav.js"></script>
 </body>
 </html>
