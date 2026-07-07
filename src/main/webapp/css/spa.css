@@ -1,0 +1,464 @@
+/* ── Spa page styles ──────────────────────────────────────────────────────── */
+
+/* Hero */
+.spa-hero {
+  height: 100vh;
+  min-height: 600px;
+  background: url('../images/spa/spa-room-1.png') center center / cover no-repeat;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.spa-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(20, 17, 14, 0.55);
+}
+
+.spa-hero-overlay {
+  position: relative;
+  z-index: 1;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.spa-hero-label {
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  opacity: 0.75;
+}
+
+.spa-hero-title {
+  font-size: clamp(3rem, 8vw, 6rem);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.spa-hero-sub {
+  font-size: 1.1rem;
+  opacity: 0.85;
+  max-width: 420px;
+}
+
+/* Intro */
+.spa-intro {
+  padding: 6rem 3rem;
+}
+
+.spa-intro-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5rem;
+  align-items: center;
+}
+
+.spa-intro-text h2 {
+  font-size: 2rem;
+  margin-bottom: 1.2rem;
+  color: var(--ink);
+}
+
+.spa-intro-text p {
+  color: var(--muted);
+  margin-bottom: 1rem;
+  font-size: 1.05rem;
+  line-height: 1.8;
+}
+
+.spa-intro-image {
+  height: 480px;
+  border-radius: 4px;
+  background: url('../images/spa/spa-candles.png') center center / cover no-repeat;
+}
+
+/* Section headers */
+.spa-section-header {
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto 3.5rem;
+}
+
+.spa-section-header h2 {
+  font-size: 2rem;
+  margin-bottom: 0.6rem;
+}
+
+.spa-section-header p {
+  color: var(--muted);
+  font-size: 1rem;
+}
+
+.spa-section-header.light h2,
+.spa-section-header.light p {
+  color: rgba(255,255,255,0.9);
+}
+
+.spa-section-header.light p {
+  color: rgba(255,255,255,0.65);
+}
+
+/* Packages */
+.spa-packages {
+  padding: 6rem 3rem;
+  background: var(--alt);
+}
+
+.spa-packages-grid {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.spa-card {
+  background: var(--card);
+  border-radius: 6px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.25s, box-shadow 0.25s;
+}
+
+.spa-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(0,0,0,0.1);
+}
+
+.spa-card.featured {
+  border: 2px solid var(--accent);
+}
+
+.spa-card-img {
+  height: 220px;
+  background-size: cover;
+  background-position: center;
+}
+
+.spa-card-img-1 { background-image: url('../images/spa/spa-massage.png'); }
+.spa-card-img-2 { background-image: url('../images/spa/spa-room-2.png'); }
+.spa-card-img-3 { background-image: url('../images/spa/spa-thai.png'); }
+.spa-card-img-4 { background-image: url('../images/spa/spa-sauna.png'); }
+.spa-card-img-5 { background-image: url('../images/spa/spa-bath.png'); }
+.spa-card-img-6 { background-image: url('../images/spa/spa-room-1.png'); }
+
+.spa-card-body {
+  padding: 1.5rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.spa-card-tag {
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.spa-card-tag.couples {
+  background: var(--accent);
+  color: white;
+  padding: 0.2rem 0.6rem;
+  border-radius: 20px;
+  display: inline-block;
+}
+
+.spa-card-body h3 {
+  font-size: 1.15rem;
+  color: var(--ink);
+}
+
+.spa-card-body p {
+  color: var(--muted);
+  font-size: 0.9rem;
+  line-height: 1.7;
+  flex: 1;
+}
+
+.spa-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border);
+}
+
+.spa-card-price {
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.spa-book-btn {
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  padding: 0.45rem 1.1rem;
+  background: var(--ink);
+  color: white;
+  border-radius: 3px;
+  transition: background 0.2s;
+}
+
+.spa-book-btn:hover {
+  background: var(--accent);
+}
+
+/* Facilities */
+.spa-facilities {
+  padding: 6rem 3rem;
+  background: var(--dark);
+  color: white;
+}
+
+.spa-facilities-grid {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2.5rem;
+  text-align: center;
+}
+
+.facility-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.7rem;
+}
+
+.facility-icon {
+  font-size: 2.2rem;
+}
+
+.facility-item h4 {
+  font-size: 1rem;
+  color: white;
+}
+
+.facility-item p {
+  font-size: 0.875rem;
+  color: rgba(255,255,255,0.55);
+  line-height: 1.6;
+}
+
+/* Booking */
+.spa-booking {
+  padding: 6rem 3rem;
+  background: var(--bg);
+}
+
+.spa-booking-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 5rem;
+  align-items: start;
+}
+
+.spa-booking-text h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.spa-booking-text > p {
+  color: var(--muted);
+  line-height: 1.8;
+  margin-bottom: 2rem;
+}
+
+.spa-booking-info {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.spa-booking-info li {
+  font-size: 0.95rem;
+  color: var(--muted);
+}
+
+/* Form */
+.spa-form {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.field label {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--ink);
+}
+
+.field input,
+.field select,
+.field textarea {
+  width: 100%;
+  padding: 0.7rem 0.9rem;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  font-family: var(--font);
+  font-size: 0.95rem;
+  color: var(--ink);
+  background: var(--bg);
+  transition: border-color 0.2s;
+}
+
+.field input:focus,
+.field select:focus,
+.field textarea:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
+.field-row-two {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.spa-submit {
+  width: 100%;
+  padding: 0.85rem;
+  background: var(--accent);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  cursor: pointer;
+  transition: background 0.2s;
+  font-family: var(--font);
+}
+
+.spa-submit:hover {
+  background: var(--accent-dark);
+}
+
+.spa-submit:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.form-status {
+  font-size: 0.9rem;
+  min-height: 1.2em;
+  text-align: center;
+}
+
+.form-status.success { color: #2e7d32; }
+.form-status.error   { color: var(--error); }
+
+/* Reviews */
+.spa-reviews {
+  padding: 6rem 3rem;
+  background: var(--alt);
+}
+
+.spa-reviews-grid {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+}
+
+.spa-review-card {
+  background: white;
+  border-radius: 6px;
+  padding: 1.8rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.spa-stars {
+  color: var(--accent);
+  font-size: 1rem;
+  letter-spacing: 0.1em;
+}
+
+.spa-review-card p {
+  font-size: 0.9rem;
+  color: var(--muted);
+  line-height: 1.75;
+  flex: 1;
+  font-style: italic;
+}
+
+.spa-reviewer {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.spa-reviewer-avatar {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: var(--accent);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 0.95rem;
+  flex-shrink: 0;
+}
+
+.spa-reviewer strong {
+  display: block;
+  font-size: 0.9rem;
+  color: var(--ink);
+}
+
+.spa-reviewer span {
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
+/* Responsive */
+@media (max-width: 1000px) {
+  .spa-packages-grid  { grid-template-columns: repeat(2, 1fr); }
+  .spa-facilities-grid { grid-template-columns: repeat(2, 1fr); }
+  .spa-reviews-grid   { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 700px) {
+  .spa-intro-inner    { grid-template-columns: 1fr; gap: 2rem; }
+  .spa-intro-image    { height: 280px; }
+  .spa-booking-inner  { grid-template-columns: 1fr; gap: 2rem; }
+  .spa-packages-grid  { grid-template-columns: 1fr; }
+  .spa-facilities-grid { grid-template-columns: repeat(2, 1fr); }
+  .spa-reviews-grid   { grid-template-columns: 1fr; }
+  .field-row-two      { grid-template-columns: 1fr; }
+  .spa-intro, .spa-packages, .spa-facilities,
+  .spa-booking, .spa-reviews { padding: 4rem 1.5rem; }
+}
