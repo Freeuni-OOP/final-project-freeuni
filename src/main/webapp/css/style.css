@@ -59,6 +59,24 @@
   border-color: var(--accent);
 }
 
+.navbar-user {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.navbar-greeting {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.85);
+  letter-spacing: 0.03em;
+}
+
+.navbar-logout {
+  background: transparent;
+  cursor: pointer;
+  font-family: inherit;
+}
+
 #hero {
   position: relative;
   height: 100vh;
