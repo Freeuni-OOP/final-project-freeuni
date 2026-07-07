@@ -11,6 +11,9 @@ target/
 # Java
 *.class
 
+# Node
+node_modules/
+
 # Logs
 *.log
 

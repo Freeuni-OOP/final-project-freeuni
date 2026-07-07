@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>OOP Hotel</title>
+    <link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+<nav id="navigation">
+    <a href="#" class="navbar-hotel-logo">OOP <span>Hotel</span></a>
+    <ul class="navbar-links">
+        <li><a href="#rooms">Rooms</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="#reviews">Reviews</a></li>
+        <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <a href="login.html" class="navbar-booking">Reserve</a>
+</nav>
+
+<section id="hero">
+    <div class="hero-content">
+        <h1 class="hero-title">OOP Hotel</h1>
+        <p class="hero-subtitle">A small hotel in central Tbilisi</p>
+        <div class="hero-buttons">
+            <a href="#rooms" class="button-primary">See Rooms</a>
+            <a href="gallery.html" class="button-secondary">View Gallery</a>
+        </div>
+    </div>
+</section>
+
+<div id="booking-bar">
+    <div class="booking-field">
+        <label>Check in</label>
+        <input type="date" />
+    </div>
+    <div class="booking-field">
+        <label>Check out</label>
+        <input type="date" />
+    </div>
+    <div class="booking-field">
+        <label>Guests</label>
+        <select>
+            <option>1 Guest</option>
+            <option>2 Guests</option>
+            <option>3 Guests</option>
+            <option>4+ Guests</option>
+        </select>
+    </div>
+    <div class="booking-field">
+        <label>Room type</label>
+        <select>
+            <option>Any Room</option>
+            <option>Base</option>
+            <option>Comfort</option>
+            <option>Premium</option>
+        </select>
+    </div>
+    <button class="button-booking">Check Availability</button>
+</div>
+
+<section id="introduction">
+    <div class="introduction-image">
+        <p class="introduction-image-overlay">Grand Hall, 1924</p>
+    </div>
+    <div class="introduction-text">
+        <h2 class="introduction-heading">Open since 1924</h2>
+        <p class="introduction-body">
+            OOP Hotel opened in 1924 and still uses its original stone building.
+            The rooms are quiet and comfortable, and the old town is a short walk away.
+        </p>
+        <a href="#" class="link-arrow">Read more →</a>
+    </div>
+</section>
+
+<section id="rooms">
+    <div class="rooms-section-header">
+        <h2 class="rooms-section-heading">Rooms & Suites</h2>
+    </div>
+
+    <div class="rooms-grid">
+        <div class="room-card">
+            <div class="room-img-base"><span class="room-badge">Base</span></div>
+            <div class="room-info">
+                <h3 class="room-name">Base</h3>
+                <p class="room-description">Stone floors, linen curtains, and a private terrace facing the mountains. King bed and a deep bathtub.</p>
+                <div class="room-footer">
+                    <p class="room-price">GEL220 <span>/ night</span></p>
+                    <a href="#" class="room-link">Reserve →</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="room-card">
+            <div class="room-img-comfort"><span class="room-badge">Comfort</span></div>
+            <div class="room-info">
+                <h3 class="room-name">Comfort</h3>
+                <p class="room-description">A living room with a fireplace, a canopied bed, and access to a private courtyard. 52 m².</p>
+                <div class="room-footer">
+                    <p class="room-price">GEL380 <span>/ night</span></p>
+                    <a href="#" class="room-link">Reserve →</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="room-card">
+            <div class="room-img-premium"><span class="room-badge">Premium</span></div>
+            <div class="room-info">
+                <h3 class="room-name">Premium</h3>
+                <p class="room-description">A private walled garden, a small pool, and two bedrooms. The quietest rooms in the hotel. 90 m².</p>
+                <div class="room-footer">
+                    <p class="room-price">GEL680 <span>/ night</span></p>
+                    <a href="#" class="room-link">Reserve →</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <a href="#" class="link-arrow">See all rooms →</a>
+</section>
+
+<section id="services">
+    <div class="services-inner">
+        <h2 class="services-heading">Services</h2>
+
+        <div class="services-grid">
+            <div class="service-item">
+                <a href="#" class="service-icon-link">
+                    <img src="icons/spa.svg" alt="Spa" class="service-icon" />
+                </a>
+                <span class="service-name">Spa</span>
+            </div>
+
+            <div class="service-item">
+                <a href="#" class="service-icon-link">
+                    <img src="icons/pool.svg" alt="Pool" class="service-icon" />
+                </a>
+                <span class="service-name">Pool</span>
+            </div>
+
+            <div class="service-item">
+                <a href="#" class="service-icon-link">
+                    <img src="icons/dining.svg" alt="Dining" class="service-icon" />
+                </a>
+                <span class="service-name">Dining</span>
+            </div>
+
+            <div class="service-item">
+                <a href="#" class="service-icon-link">
+                    <img src="icons/bar.svg" alt="Bar" class="service-icon" />
+                </a>
+                <span class="service-name">Bar</span>
+            </div>
+
+            <div class="service-item">
+                <a href="#" class="service-icon-link">
+                    <img src="icons/concierge.svg" alt="Concierge" class="service-icon" />
+                </a>
+                <span class="service-name">Concierge</span>
+            </div>
+
+            <div class="service-item">
+                <a href="#" class="service-icon-link">
+                    <img src="icons/tours.svg" alt="Tours" class="service-icon" />
+                </a>
+                <span class="service-name">Tours</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="gallery" aria-label="Photo gallery">
+    <a href="gallery.html" class="gallery-item-main">
+        <div class="gallery-image gallery-image-1"></div>
+        <div class="gallery-overlay"><span class="gallery-overlay-label">The Gardens</span></div>
+    </a>
+    <a href="gallery.html" class="gallery-item">
+        <div class="gallery-image gallery-image-2"></div>
+        <div class="gallery-overlay"><span class="gallery-overlay-label">Grand Suite</span></div>
+    </a>
+    <a href="gallery.html" class="gallery-item">
+        <div class="gallery-image gallery-image-3"></div>
+        <div class="gallery-overlay"><span class="gallery-overlay-label">The Pool</span></div>
+    </a>
+    <a href="gallery.html" class="gallery-item">
+        <div class="gallery-image gallery-image-4"></div>
+        <div class="gallery-overlay"><span class="gallery-overlay-label">Spa</span></div>
+    </a>
+    <a href="gallery.html" class="gallery-item">
+        <div class="gallery-image gallery-image-5"></div>
+        <div class="gallery-overlay"><span class="gallery-overlay-label">Dining Room</span></div>
+    </a>
+</section>
+
+<div style="text-align: center; padding: 2rem 1.5rem;">
+    <a href="gallery.html" class="link-arrow">View full gallery →</a>
+</div>
+
+<section id="reviews">
+    <div class="reviews-inner">
+        <p class="reviews-stars">★★★★★</p>
+        <blockquote class="reviews-quote">
+            "One of the most comfortable stays we've had in Tbilisi. Quiet, central,
+            and the staff were genuinely helpful the whole time."
+        </blockquote>
+        <p class="reviews-author">— Avtandil Shoshiashvili</p>
+    </div>
+</section>
+
+<section id="booking-cta">
+    <h2 class="cta-heading">Book your stay</h2>
+    <p class="cta-subheading">Free airport transfer on stays of three nights or more.</p>
+    <div class="cta-buttons">
+        <a href="login.html" class="button-primary">Book a Room</a>
+        <a href="contact.html" class="button-secondary">Contact Us</a>
+    </div>
+</section>
+
+<footer id="footer">
+    <div class="footer-top">
+        <div>
+            <p class="footer-brand-name">OOP <span>Hotel</span></p>
+            <p class="footer-brand-desc">14 Rustaveli Avenue, Tbilisi 0108, Georgia.</p>
+        </div>
+        <div class="footer-column">
+            <p class="footer-column-title">Navigate</p>
+            <ul>
+                <li><a href="#rooms">Rooms & Suites</a></li>
+                <li><a href="#services">Dining</a></li>
+                <li><a href="#services">Spa</a></li>
+            </ul>
+        </div>
+        <div class="footer-column">
+            <p class="footer-column-title">Contact</p>
+            <ul>
+                <li><a href="tel:+995322220020">+995 32 222 0020</a></li>
+                <li><a href="mailto:stay@oophotel.ge">stay@oophotel.ge</a></li>
+                <li><a href="contact.html">Directions</a></li>
+            </ul>
+        </div>
+        <div class="footer-column">
+            <p class="footer-column-title">Legal</p>
+            <ul>
+                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="#">Cookie Policy</a></li>
+                <li><a href="#">Terms of Use</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>© 2025 OOP Hotel. All rights reserved.</p>
+        <div class="footer-socials">
+            <a href="#">Instagram</a>
+            <a href="#">Facebook</a>
+            <a href="#">LinkedIn</a>
+        </div>
+    </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,95 @@
+/* Form fields shared by the login and contact pages. */
+
+.field {
+  margin-bottom: 1.2rem;
+}
+
+.field label {
+  display: block;
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 0.4rem;
+}
+
+.field label .optional {
+  text-transform: none;
+  letter-spacing: 0;
+  color: #a8a298;
+}
+
+.field input,
+.field select,
+.field textarea {
+  width: 100%;
+  font-family: inherit;
+  font-size: 15px;
+  color: var(--ink);
+  background: var(--card);
+  border: 1px solid var(--border);
+  padding: 0.7rem 0.85rem;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.field input::placeholder,
+.field textarea::placeholder {
+  color: #a8a298;
+}
+
+.field input:focus,
+.field select:focus,
+.field textarea:focus {
+  border-color: var(--accent);
+}
+
+.field input.invalid,
+.field select.invalid,
+.field textarea.invalid {
+  border-color: var(--error);
+}
+
+.field-error {
+  display: block;
+  min-height: 16px;
+  font-size: 12px;
+  color: var(--error);
+  margin-top: 0.35rem;
+}
+
+.form-submit {
+  width: 100%;
+  font-family: inherit;
+  font-size: 14px;
+  color: white;
+  background: var(--accent);
+  border: none;
+  padding: 0.85rem 1rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.form-submit:hover {
+  background: var(--accent-dark);
+}
+
+.form-submit:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.form-status {
+  margin-top: 1rem;
+  font-size: 14px;
+  text-align: center;
+  min-height: 18px;
+}
+
+.form-status.success {
+  color: #3b6d11;
+}
+
+.form-status.error {
+  color: var(--error);
+}
