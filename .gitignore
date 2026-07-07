@@ -1,4 +1,21 @@
-﻿*.DS_Store
-node_modules/
-target/
+# macOS
+.DS_Store
+
+# IntelliJ / IDE
 .idea/
+*.iml
+
+# Maven build output
+target/
+
+# Java
+*.class
+
+# Node
+node_modules/
+
+# Logs
+*.log
+
+# Local env / config
+.env
