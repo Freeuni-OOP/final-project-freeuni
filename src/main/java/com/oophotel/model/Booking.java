@@ -2,7 +2,6 @@ package com.oophotel.model;
 
 import java.time.LocalDate;
 
-// A room booking.
 public class Booking {
 
     private final int id;

@@ -1,6 +1,6 @@
 -- Rooms table (აქ id იქნება კონკრეტული ოთახის ნომერი!)
 CREATE TABLE IF NOT EXISTS rooms (
-        id              INT PRIMARY KEY, -- AUTO_INCREMENT მოვაშორეთ, რომ ნომრები ჩვენვე მივცეთ
+        id              INT PRIMARY KEY,
         type            VARCHAR(50)   NOT NULL,
         name            VARCHAR(100)  NOT NULL,
         description     TEXT,
@@ -8,10 +8,8 @@ CREATE TABLE IF NOT EXISTS rooms (
         capacity        INT           NOT NULL
     );
 
--- ავტომატურად ჩავყაროთ 10-10 ოთახი თითოეულ ტიპში
 INSERT INTO rooms (id, type, name, description, price_per_night, capacity)
 VALUES
-        -- 10 ცალი Deluxe ოთახი (ნომრები 101-დან 110-მდე)
         (101, 'Deluxe', 'Deluxe Mountain View', 'Stone floors, linen curtains, private terrace, king bed.', 220.00, 2),
         (102, 'Deluxe', 'Deluxe Mountain View', 'Stone floors, linen curtains, private terrace, king bed.', 220.00, 2),
         (103, 'Deluxe', 'Deluxe Mountain View', 'Stone floors, linen curtains, private terrace, king bed.', 220.00, 2),
@@ -23,7 +21,6 @@ VALUES
         (109, 'Deluxe', 'Deluxe Mountain View', 'Stone floors, linen curtains, private terrace, king bed.', 220.00, 2),
         (110, 'Deluxe', 'Deluxe Mountain View', 'Stone floors, linen curtains, private terrace, king bed.', 220.00, 2),
 
-        -- 10 ცალი Junior Suite (ნომრები 201-დან 210-მდე)
         (201, 'Suite',  'Junior Suite',         'Living room with fireplace, canopied bed, private courtyard.', 380.00, 3),
         (202, 'Suite',  'Junior Suite',         'Living room with fireplace, canopied bed, private courtyard.', 380.00, 3),
         (203, 'Suite',  'Junior Suite',         'Living room with fireplace, canopied bed, private courtyard.', 380.00, 3),
@@ -35,7 +32,6 @@ VALUES
         (209, 'Suite',  'Junior Suite',         'Living room with fireplace, canopied bed, private courtyard.', 380.00, 3),
         (210, 'Suite',  'Junior Suite',         'Living room with fireplace, canopied bed, private courtyard.', 380.00, 3),
 
-        -- 10 ცალი Garden Villa (ნომრები 301-დან 310-მდე)
         (301, 'Villa',  'Garden Villa',         'Private walled garden, small pool, two bedrooms.', 680.00, 4),
         (302, 'Villa',  'Garden Villa',         'Private walled garden, small pool, two bedrooms.', 680.00, 4),
         (303, 'Villa',  'Garden Villa',         'Private walled garden, small pool, two bedrooms.', 680.00, 4),

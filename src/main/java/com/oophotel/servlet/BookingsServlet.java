@@ -61,7 +61,6 @@ public class BookingsServlet extends HttpServlet {
         try {
             Booking booking = bookingDao.create(body.roomId, userId, checkIn, checkOut);
 
-            // მთლიანი რთული ობიექტის ნაცვლად, ფრონტენდს ვუბრუნებთ მარტივ ტექსტურ/ციფრულ JSON-ს
             String successJson = String.format(
                     "{\"id\": %d, \"status\": \"%s\", \"message\": \"Booking successful\"}",
                     booking.getId(), booking.getStatus()

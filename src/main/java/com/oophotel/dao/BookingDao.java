@@ -16,8 +16,7 @@ import java.util.List;
 // Database queries for bookings.
 public class BookingDao {
 
-    // Returns true if the room already has a CONFIRMED booking that overlaps
-    // the given date range. Two ranges [a,b) and [c,d) overlap iff a < d && c < b.
+    // Returns true if the room already has a CONFIRMED booking that overlap the given date range.
     public boolean hasOverlap(int roomId, LocalDate checkIn, LocalDate checkOut) throws SQLException {
         String sql = "SELECT 1 FROM bookings " +
                 "WHERE room_id = ? AND status = 'CONFIRMED' " +
@@ -43,9 +42,6 @@ public class BookingDao {
         String sql = "INSERT INTO bookings (room_id, user_id, check_in, check_out, status) " +
                 "VALUES (?, ?, ?, ?, 'CONFIRMED')";
         try (Connection connection = DataSource.getConnection()) {
-            // Basic overlap guard at the application level.
-            // (The DB itself has no exclusion constraint, so this is a best-effort check;
-            // for stronger guarantees this could be wrapped in a transaction with locking.)
             if (hasOverlap(roomId, checkIn, checkOut)) {
                 throw new IllegalStateException("Room is already booked for the selected dates");
             }
@@ -81,7 +77,7 @@ public class BookingDao {
         return bookings;
     }
 
-    // Returns all bookings (e.g. for an admin view).
+    // Returns all bookings
     public List<Booking> findAll() throws SQLException {
         String sql = "SELECT id, room_id, user_id, check_in, check_out, status " +
                 "FROM bookings ORDER BY id DESC";
