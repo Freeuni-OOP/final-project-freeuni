@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Spa & Wellness — OOP Hotel</title>
+    <link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/spa.css" />
+</head>
+<body>
+
+<nav id="navigation">
+    <a href="index.html" class="navbar-hotel-logo">OOP <span>Hotel</span></a>
+    <ul class="navbar-links">
+        <li><a href="index.html#rooms">Rooms</a></li>
+        <li><a href="index.html#services">Services</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="index.html#reviews">Reviews</a></li>
+        <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="navbar-user" id="navbar-user">
+        <a href="login.html" class="navbar-booking" id="nav-signin-btn">Sign in</a>
+    </div>
+</nav>
+
+<!-- Hero -->
+<section class="spa-hero">
+    <div class="spa-hero-overlay">
+        <p class="spa-hero-label">Wellness & Restoration</p>
+        <h1 class="spa-hero-title">OOP Spa</h1>
+        <p class="spa-hero-sub">A sanctuary of calm in the heart of Tbilisi</p>
+        <a href="#booking" class="button-primary">Book a Treatment</a>
+    </div>
+</section>
+
+<!-- Intro -->
+<section class="spa-intro">
+    <div class="spa-intro-inner">
+        <div class="spa-intro-text">
+            <h2>Where the city disappears</h2>
+            <p>
+                The OOP Spa spans two floors of the original 1924 building. Stone walls, warm lighting,
+                and a team of specialist therapists create an environment built entirely around rest.
+                Whether you come for an hour or an afternoon, every visit is tailored to you.
+            </p>
+            <p>
+                Open daily from <strong>09:00 to 21:00</strong>. Bookings recommended 24 hours in advance.
+            </p>
+        </div>
+        <div class="spa-intro-image"></div>
+    </div>
+</section>
+
+<!-- Packages -->
+<section class="spa-packages" id="packages">
+    <div class="spa-section-header">
+        <h2>Treatments & Packages</h2>
+        <p>All treatments include access to the steam room, sauna, and relaxation lounge.</p>
+    </div>
+
+    <div class="spa-packages-grid">
+
+        <div class="spa-card">
+            <div class="spa-card-img spa-card-img-1"></div>
+            <div class="spa-card-body">
+                <span class="spa-card-tag">60 min</span>
+                <h3>Classic Massage</h3>
+                <p>A full-body Swedish massage using warm oils. Eases tension and improves circulation. Perfect as an introduction to the spa.</p>
+                <div class="spa-card-footer">
+                    <span class="spa-card-price">GEL 120</span>
+                    <a href="#booking" class="spa-book-btn">Book</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="spa-card">
+            <div class="spa-card-img spa-card-img-2"></div>
+            <div class="spa-card-body">
+                <span class="spa-card-tag">90 min</span>
+                <h3>Deep Tissue Massage</h3>
+                <p>Targets deeper muscle layers to release chronic tension. Recommended for those with active lifestyles or desk work.</p>
+                <div class="spa-card-footer">
+                    <span class="spa-card-price">GEL 180</span>
+                    <a href="#booking" class="spa-book-btn">Book</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="spa-card">
+            <div class="spa-card-img spa-card-img-3"></div>
+            <div class="spa-card-body">
+                <span class="spa-card-tag">90 min</span>
+                <h3>Thai Massage</h3>
+                <p>Traditional dry-pressure technique combining acupressure and assisted stretching. Energising and deeply relaxing.</p>
+                <div class="spa-card-footer">
+                    <span class="spa-card-price">GEL 160</span>
+                    <a href="#booking" class="spa-book-btn">Book</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="spa-card">
+            <div class="spa-card-img spa-card-img-4"></div>
+            <div class="spa-card-body">
+                <span class="spa-card-tag">60 min</span>
+                <h3>Hammam & Steam</h3>
+                <p>Traditional Georgian hammam ritual with exfoliation, foam massage, and a warm rinse. Skin is left completely renewed.</p>
+                <div class="spa-card-footer">
+                    <span class="spa-card-price">GEL 100</span>
+                    <a href="#booking" class="spa-book-btn">Book</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="spa-card">
+            <div class="spa-card-img spa-card-img-5"></div>
+            <div class="spa-card-body">
+                <span class="spa-card-tag">120 min</span>
+                <h3>Full Body Ritual</h3>
+                <p>Our signature treatment. Begins with a hammam scrub, followed by a hot-stone massage and a nourishing wrap. The complete experience.</p>
+                <div class="spa-card-footer">
+                    <span class="spa-card-price">GEL 250</span>
+                    <a href="#booking" class="spa-book-btn">Book</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="spa-card featured">
+            <div class="spa-card-img spa-card-img-6"></div>
+            <div class="spa-card-body">
+                <span class="spa-card-tag couples">Couples · 90 min</span>
+                <h3>Couples Package</h3>
+                <p>Side-by-side massage in our private double room, followed by champagne in the relaxation lounge. Ideal for a special occasion.</p>
+                <div class="spa-card-footer">
+                    <span class="spa-card-price">GEL 380</span>
+                    <a href="#booking" class="spa-book-btn">Book</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- Facilities -->
+<section class="spa-facilities">
+    <div class="spa-section-header light">
+        <h2>Our Facilities</h2>
+        <p>Included with every treatment booking.</p>
+    </div>
+    <div class="spa-facilities-grid">
+        <div class="facility-item">
+            <span class="facility-icon">♨</span>
+            <h4>Finnish Sauna</h4>
+            <p>Traditional wood-lined sauna at 85°C. Open 09:00 – 21:00.</p>
+        </div>
+        <div class="facility-item">
+            <span class="facility-icon">💧</span>
+            <h4>Steam Room</h4>
+            <p>Eucalyptus-infused steam at 45°C for deep respiratory relief.</p>
+        </div>
+        <div class="facility-item">
+            <span class="facility-icon">🛁</span>
+            <h4>Private Bathtubs</h4>
+            <p>Three private rooms each with a deep freestanding soaking tub.</p>
+        </div>
+        <div class="facility-item">
+            <span class="facility-icon">🕯</span>
+            <h4>Relaxation Lounge</h4>
+            <p>Candlelit lounge with herbal teas, fresh fruit, and silence.</p>
+        </div>
+    </div>
+</section>
+
+<!-- Booking -->
+<section class="spa-booking" id="booking">
+    <div class="spa-booking-inner">
+        <div class="spa-booking-text">
+            <h2>Reserve your treatment</h2>
+            <p>Choose your treatment, pick a date and time, and we will confirm your booking within the hour. All slots are subject to availability.</p>
+            <ul class="spa-booking-info">
+                <li>📅 Available 7 days a week, 09:00 – 21:00</li>
+                <li>👤 Minimum age: 16 years</li>
+                <li>💳 Payment at the spa reception</li>
+                <li>🔄 Free cancellation up to 12 hours before</li>
+            </ul>
+        </div>
+
+        <form class="spa-form" id="spa-form" novalidate>
+            <div class="field">
+                <label for="spa-name">Full name</label>
+                <input type="text" id="spa-name" placeholder="Your full name" required />
+            </div>
+            <div class="field">
+                <label for="spa-email">Email address</label>
+                <input type="email" id="spa-email" placeholder="you@example.com" required />
+            </div>
+            <div class="field">
+                <label for="spa-treatment">Treatment</label>
+                <select id="spa-treatment" required>
+                    <option value="">Select a treatment</option>
+                    <option>Classic Massage — 60 min — GEL 120</option>
+                    <option>Deep Tissue Massage — 90 min — GEL 180</option>
+                    <option>Thai Massage — 90 min — GEL 160</option>
+                    <option>Hammam & Steam — 60 min — GEL 100</option>
+                    <option>Full Body Ritual — 120 min — GEL 250</option>
+                    <option>Couples Package — 90 min — GEL 380</option>
+                </select>
+            </div>
+            <div class="field-row-two">
+                <div class="field">
+                    <label for="spa-date">Date</label>
+                    <input type="date" id="spa-date" required />
+                </div>
+                <div class="field">
+                    <label for="spa-time">Time</label>
+                    <select id="spa-time" required>
+                        <option value="">Select time</option>
+                        <option>09:00</option>
+                        <option>10:00</option>
+                        <option>11:00</option>
+                        <option>12:00</option>
+                        <option>13:00</option>
+                        <option>14:00</option>
+                        <option>15:00</option>
+                        <option>16:00</option>
+                        <option>17:00</option>
+                        <option>18:00</option>
+                        <option>19:00</option>
+                    </select>
+                </div>
+            </div>
+            <div class="field">
+                <label for="spa-guests">Number of guests</label>
+                <select id="spa-guests">
+                    <option>1 guest</option>
+                    <option>2 guests (Couples Package)</option>
+                </select>
+            </div>
+            <div class="field">
+                <label for="spa-notes">Special requests (optional)</label>
+                <textarea id="spa-notes" rows="3" placeholder="Allergies, injuries, preferences…"></textarea>
+            </div>
+            <button type="submit" class="form-submit spa-submit">Check Availability & Book</button>
+            <p class="form-status" id="spa-status"></p>
+        </form>
+    </div>
+</section>
+
+<!-- Reviews -->
+<section class="spa-reviews" id="reviews">
+    <div class="spa-section-header">
+        <h2>Guest Experiences</h2>
+    </div>
+    <div class="spa-reviews-grid">
+
+        <div class="spa-review-card">
+            <div class="spa-stars">★★★★★</div>
+            <p>"The Full Body Ritual was the best spa treatment I've ever had. The therapist was incredibly skilled and the hammam room is beautiful. I left feeling completely restored."</p>
+            <div class="spa-reviewer">
+                <div class="spa-reviewer-avatar">N</div>
+                <div>
+                    <strong>Nino Kvaratskhelia</strong>
+                    <span>Tbilisi, Georgia</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="spa-review-card">
+            <div class="spa-stars">★★★★★</div>
+            <p>"We booked the Couples Package for our anniversary. The private room, the candles, the massage — everything was perfect. The champagne at the end was a wonderful touch."</p>
+            <div class="spa-reviewer">
+                <div class="spa-reviewer-avatar">L</div>
+                <div>
+                    <strong>Luca Ferretti</strong>
+                    <span>Milan, Italy</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="spa-review-card">
+            <div class="spa-stars">★★★★★</div>
+            <p>"I come for the Thai massage every time I stay at OOP Hotel. The pressure is perfect, the therapist remembers exactly what I need. Worth every penny."</p>
+            <div class="spa-reviewer">
+                <div class="spa-reviewer-avatar">S</div>
+                <div>
+                    <strong>Sophie Müller</strong>
+                    <span>Berlin, Germany</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="spa-review-card">
+            <div class="spa-stars">★★★★★</div>
+            <p>"The sauna and steam room alone are worth the visit. I spent two hours there after a long flight and felt like a new person. Very clean, very peaceful, excellent staff."</p>
+            <div class="spa-reviewer">
+                <div class="spa-reviewer-avatar">A</div>
+                <div>
+                    <strong>Arjun Mehta</strong>
+                    <span>Mumbai, India</span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- Footer -->
+<footer id="footer">
+    <div class="footer-grid">
+        <div class="footer-column">
+            <p class="footer-brand">OOP <span>Hotel</span></p>
+            <p class="footer-address">12 Rustaveli Avenue<br/>Tbilisi, Georgia 0108</p>
+        </div>
+        <div class="footer-column">
+            <p class="footer-column-title">Hotel</p>
+            <ul>
+                <li><a href="index.html#rooms">Rooms</a></li>
+                <li><a href="index.html#services">Services</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+        <div class="footer-column">
+            <p class="footer-column-title">Spa</p>
+            <ul>
+                <li><a href="#packages">Treatments</a></li>
+                <li><a href="#booking">Book a Session</a></li>
+                <li><a href="#reviews">Guest Reviews</a></li>
+            </ul>
+        </div>
+        <div class="footer-column">
+            <p class="footer-column-title">Legal</p>
+            <ul>
+                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="#">Terms of Use</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>© 2025 OOP Hotel. All rights reserved.</p>
+        <div class="footer-socials">
+            <a href="#">Instagram</a>
+            <a href="#">Facebook</a>
+            <a href="#">LinkedIn</a>
+        </div>
+    </div>
+</footer>
+
+<script src="js/main.js"></script>
+<script src="js/auth-nav.js"></script>
+<script src="js/spa.js"></script>
+</body>
+</html>
