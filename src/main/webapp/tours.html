@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tours & Excursions — OOP Hotel</title>
+    <link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/tours.css" />
+</head>
+<body>
+
+<nav id="navigation">
+    <a href="index.html" class="navbar-hotel-logo">OOP <span>Hotel</span></a>
+    <ul class="navbar-links">
+        <li><a href="index.html#rooms">Rooms</a></li>
+        <li><a href="index.html#services">Services</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="index.html#reviews">Reviews</a></li>
+        <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="navbar-user" id="navbar-user">
+        <a href="login.html" class="navbar-booking" id="nav-signin-btn">Sign in</a>
+    </div>
+</nav>
+
+<!-- Hero -->
+<section class="tours-hero">
+    <div class="tours-hero-overlay">
+        <p class="tours-hero-label">Complimentary Guest Experiences</p>
+        <h1 class="tours-hero-title">Tours & Excursions</h1>
+        <p class="tours-hero-sub">Discover Georgia with our curated day trips and adventures — each one handpicked for our guests.</p>
+        <a href="#tours" class="button-primary">See All Tours</a>
+    </div>
+</section>
+
+<!-- Stats bar -->
+<div class="tours-stats">
+    <div class="tours-stat">
+        <span class="tours-stat-number">7</span>
+        <span class="tours-stat-label">Curated tours</span>
+    </div>
+    <div class="tours-stat">
+        <span class="tours-stat-number">Daily</span>
+        <span class="tours-stat-label">Departures</span>
+    </div>
+    <div class="tours-stat">
+        <span class="tours-stat-number">English</span>
+        <span class="tours-stat-label">All guides</span>
+    </div>
+    <div class="tours-stat">
+        <span class="tours-stat-number">Free</span>
+        <span class="tours-stat-label">Transport included</span>
+    </div>
+</div>
+
+<!-- Tours -->
+<section class="tours-list" id="tours">
+    <div class="tours-section-header">
+        <h2>Our Tours</h2>
+        <p>All tours depart from the hotel lobby. Transport, guide, and entry fees are included in the price unless noted. Reserve your place at least 24 hours in advance.</p>
+    </div>
+
+    <!-- Kazbegi -->
+    <div class="tour-card" id="kazbegi">
+        <div class="tour-gallery">
+            <div class="tour-gallery-main" style="background-image:url('images/tours/kazbegi-1.png')"></div>
+            <div class="tour-gallery-thumbs">
+                <div class="tour-thumb active" style="background-image:url('images/tours/kazbegi-1.png')" data-full="images/tours/kazbegi-1.png"></div>
+                <div class="tour-thumb" style="background-image:url('images/tours/kazbegi-2.png')" data-full="images/tours/kazbegi-2.png"></div>
+                <div class="tour-thumb" style="background-image:url('images/tours/kazbegi-3.png')" data-full="images/tours/kazbegi-3.png"></div>
+                <div class="tour-thumb" style="background-image:url('images/tours/kazbegi-4.png')" data-full="images/tours/kazbegi-4.png"></div>
+            </div>
+        </div>
+        <div class="tour-info">
+            <div class="tour-tags">
+                <span class="tour-tag nature">Nature</span>
+                <span class="tour-tag history">History</span>
+                <span class="tour-tag popular">Most Popular</span>
+            </div>
+            <h2 class="tour-title">Kazbegi & Gergeti Trinity Church</h2>
+            <p class="tour-desc">Travel deep into the Greater Caucasus mountains to the legendary Kazbegi region. Visit the Gergeti Trinity Church perched at 2,170 m with stunning views of Mount Kazbek (5,047 m). Walk through Stepantsminda village, cross the Terek River, and explore medieval stone towers.</p>
+            <div class="tour-highlights">
+                <h4>Highlights</h4>
+                <ul>
+                    <li>🏔 Gergeti Trinity Church (14th century)</li>
+                    <li>⛰ Views of snow-capped Mount Kazbek</li>
+                    <li>🏘 Stepantsminda village walk</li>
+                    <li>🌊 Terek River valley</li>
+                    <li>🍽 Traditional Georgian lunch included</li>
+                    <li>📸 Panoramic photography stops</li>
+                </ul>
+            </div>
+            <div class="tour-meta-grid">
+                <div class="tour-meta-item"><span class="meta-icon">⏱</span><div><strong>Duration</strong><span>Full day (10–11 hrs)</span></div></div>
+                <div class="tour-meta-item"><span class="meta-icon">🚐</span><div><strong>Transport</strong><span>Minivan from hotel</span></div></div>
+                <div class="tour-meta-item"><span class="meta-icon">👥</span><div><strong>Group size</strong><span>Max 12 guests</span></div></div>
+                <div class="tour-meta-item"><span class="meta-icon">📅</span><div><strong>Days</strong><span>Daily departures</span></div></div>
+            </div>
+            <div class="tour-footer">
+                <div class="tour-price-block">
+                    <span class="tour-price">GEL 120 <small>/ person</small></span>
+                    <span class="tour-price-note">Lunch included</span>
+                </div>
+                <a href="#booking" class="tour-book-btn" data-tour="Kazbegi & Gergeti Trinity Church">Book This Tour</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Gomis Mta -->
+    <div class="tour-card reverse" id="gomismta">
+        <div class="tour-gallery">
+            <div class="tour-gallery-main" style="background-image:url('images/tours/gomismta-1.png')"></div>
+            <div class="tour-gallery-thumbs">
+                <div class="tour-thumb active" style="background-image:url('images/tours/gomismta-1.png')" data-full="images/tours/gomismta-1.png"></div>
+                <div class="tour-thumb" style="background-image:url('images/tours/gomismta-2.png')" data-full="images/tours/gomismta-2.png"></div>
+                <div class="tour-thumb" style="background-image:url('images/tours/gomismta-3.png')" data-full="images/tours/gomismta-3.png"></div>
+            </div>
+        </div>
+        <div class="tour-info">
+            <div class="tour-tags">
+                <span class="tour-tag adventure">Adventure</span>
+                <span class="tour-tag nature">Nature</span>
+            </div>
+            <h2 class="tour-title">Gomis Mta — Above the Clouds</h2>
+            <p class="tour-desc">Gomis Mta rises to over 2,100 metres in the Racha region, and on a clear day the view stretches endlessly above an ocean of clouds. This overnight camping tour includes a guided hike through alpine meadows, a campfire dinner, and the unforgettable experience of waking above the clouds at sunrise.</p>
+            <div class="tour-highlights">
+                <h4>Highlights</h4>
+                <ul>
+                    <li>⛅ Above-the-cloud panoramic views</li>
+                    <li>🏕 Overnight camping with equipment provided</li>
+                    <li>🔥 Campfire dinner under the stars</li>
+                    <li>🌅 Sunrise above the clouds</li>
+                    <li>🥾 Guided alpine meadow hike</li>
+                    <li>🌿 Wild herbs and flowers of the Caucasus</li>
+                </ul>
+            </div>
+            <div class="tour-meta-grid">
+                <div class="tour-meta-item"><span class="meta-icon">⏱</span><div><strong>Duration</strong><span>2 days / 1 night</span></div></div>
+                <div class="tour-meta-item"><span class="meta-icon">🚐</span><div><strong>Transport</strong><span>4×4 from hotel</span></div></div>
+                <div class="tour-meta-item"><span class="meta-icon">👥</span><div><strong>Group size</strong><span>Max 8 guests</span></div></div>
+                <div class="tour-meta-item"><span class="meta-icon">📅</span><div><strong>Days</strong><span>Fri & Sat departures</span></div></div>
+            </div>
+            <div class="tour-footer">
+                <div class="tour-price-block">
+                    <span class="tour-price">GEL 220 <small>/ person</small></span>
+                    <span class="tour-price-note">Camping gear & meals included</span>
+                </div>
+                <a href="#booking" class="tour-book-btn" data-tour="Gomis Mta — Above the Clouds">Book This Tour</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Tusheti -->
+    <div class="tour-card" id="tusheti">
+        <div class="tour-gallery">
+            <div class="tour-gallery-main" style="background-image:url('images/tours/tusheti-1.png')"></div>
+            <div class="tour-gallery-thumbs">
+                <div class="tour-thumb active" style="background-image:url('images/tours/tusheti-1.png')" data-full="images/tours/tusheti-1.png"></div>
+                <div class="tour-thumb" style="background-image:url('images/tours/tusheti-2.png')" data-full="images/tours/tusheti-2.png"></div>
+                <div class="tour-thumb" style="background-image:url('images/tours/tusheti-3.png')" data-full="images/tours/tusheti-3.png"></div>
+            </div>
+        </div>
+        <div class="tour-info">
+            <div class="tour-tags">
+                <span class="tour-tag adventure">Adventure</span>
+                <span class="tour-tag history">History</span>
+                <span class="tour-tag premium-tag">Premium</span>
+            </div>
+            <h2 class="tour-title">Tusheti — Ancient Towers & Wild Mountains</h2>
+            <p class="tour-desc">Tusheti is one of the most remote and breathtaking regions in Georgia — a UNESCO heritage landscape of medieval watchtowers, ancient villages, and untouched alpine wilderness. Accessible only by the legendary Abano Pass road (one of the most dramatic drives in the world), this is a journey for the adventurous.</p>
+            <div class="tour-highlights">
+                <h4>Highlights</h4>
+                <ul>
+                    <li>🗼 Medieval defensive towers of Omalo</li>
+                    <li>🛤 Abano Pass (2,926 m) — legendary mountain road</li>
+                    <li>🏡 Stay in traditional Tushetian guesthouse</li>
+                    <li>🦅 Eagle-eye aerial views of mountain villages</li>
+                    <li>⚔️ Ancient fortress ruins exploration</li>
+                    <li>🐑 Meet local shepherds and their flocks</li>
+                </ul>
+            </div>
+            <div class="tour-meta-grid">
+                <div class="tour-meta-item"><span class="meta-icon">⏱</span><div><strong>Duration</strong><span>3 days / 2 nights</span></div></div>
+                <div class="tour-meta-item"><span class="meta-icon">🚐</span><div><strong>Transport</strong><span>4×4 convoy</span></div></div>
+                <div class="tour-meta-item"><span class="meta-icon">👥</span><div><strong>Group size</strong><span>Max 6 guests</span></div></div>
+                <div class="tour-meta-item"><span class="meta-icon">📅</span><div><strong>Days</strong><span>Thu departures</span></div></div>
+            </div>
+            <div class="tour-footer">
+                <div class="tour-price-block">
+                    <span class="tour-price">GEL 380 <small>/ person</small></span>
+                    <span class="tour-price-note">Accommodation & all meals included</span>
+                </div>
+                <a href="#booking" class="tour-book-btn" data-tour="Tusheti — Ancient Towers & Wild Mountains">Book This Tour</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Kass Land -->
+    <div class="tour-card reverse" id="kassland">
+        <div class="tour-gallery">
+            <div class="tour-gallery-main" style="background-image:url('images/tours/kassland-1.png')"></div>
+            <div class="tour-gallery-thumbs">
+                <div class="tour-thumb active" style="background-image:url('images/tours/kassland-1.png')" data-full="images/tours/kassland-1.png"></div>
+                <div class="tour-thumb" style="background-image:url('images/tours/kassland-2.png')" data-full="images/tours/kassland-2.png"></div>
+                <div class="tour-thumb" style="background-image:url('images/tours/kassland-3.png')" data-full="images/tours/kassland-3.png"></div>
+            </div>
+        </div>
+        <div class="tour-info">
+            <div class="tour-tags">
+                <span class="tour-tag fun">Fun & Activities</span>
+                <span class="tour-tag family">Family</span>
+            </div>
+            <h2 class="tour-title">Kass Land — Georgia's Adventure Park</h2>
+            <p class="tour-desc">Kass Land is Georgia's largest and most spectacular attraction park, featuring the record-breaking Diamond Bridge zipline, massive rainbow slides, go-kart racing tracks, cable cars, and dozens of activities for all ages. Set in stunning natural surroundings near Gori, this is a full day of pure exhilaration.</p>
+            <div class="tour-highlights">
+                <h4>Highlights</h4>
+                <ul>
+                    <li>💎 Diamond Bridge — Guinness World Record zipline</li>
+                    <li>🌈 Massive rainbow tubing slides</li>
+                    <li>🏎 Go-kart racing circuit</li>
+                    <li>🚡 Panoramic cable car rides</li>
+                    <li>🎢 Roller coasters & amusement rides</li>
+                    <li>🍴 Multiple dining options on-site</li>
+                </ul>
+            </div>
+            <div class="tour-meta-grid">
+                <div class="tour-meta-item"><span class="meta-icon">⏱</span><div><strong>Duration</strong><span>Full day (9–10 hrs)</span></div></div>
+                <div class="tour-meta-item"><span class="meta-icon">🚐</span><div><strong>Transport</strong><span>Minivan from hotel</span></div></div>
+                <div class="tour-meta-item"><span class="meta-icon">👥</span><div><strong>Group size</strong><span>Max 15 guests</span></div></div>
+                <div class="tour-meta-item"><span class="meta-icon">📅</span><div><strong>Days</strong><span>Weekends</span></div></div>
+            </div>
+            <div class="tour-footer">
+                <div class="tour-price-block">
+                    <span class="tour-price">GEL 95 <small>/ person</small></span>
+                    <span class="tour-price-note">Entry wristband included</span>
+                </div>
+                <a href="#booking" class="tour-book-btn" data-tour="Kass Land — Georgia's Adventure Park">Book This Tour</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mtatsminda -->
+    <div class="tour-card" id="mtatsminda">
+        <div class="tour-gallery">
+            <div class="tour-gallery-main" style="background-image:url('images/tours/mtatsminda-1.png')"></div>
+            <div class="tour-gallery-thumbs">
+                <div class="tour-thumb active" style="background-image:url('images/tours/mtatsminda-1.png')" data-full="images/tours/mtatsminda-1.png"></div>
+                <div class="tour-thumb" style="background-image:url('images/tours/mtatsminda-2.png')" data-full="images/tours/mtatsminda-2.png"></div>
+                <div class="tour-thumb" style="background-image:url('images/tours/mtatsminda-3.png')" data-full="images/tours/mtatsminda-3.png"></div>
+                <div class="tour-thumb" style="background-image:url('images/tours/mtatsminda-4.png')" data-full="images/tours/mtatsminda-4.png"></div>
+                <div class="tour-thumb" style="background-image:url('images/tours/mtatsminda-5.png')" data-full="images/tours/mtatsminda-5.png"></div>
+            </div>
+        </div>
+        <div class="tour-info">
+            <div class="tour-tags">
+                <span class="tour-tag city">City</span>
+                <span class="tour-tag family">Family</span>
+                <span class="tour-tag fun">Fun & Activities</span>
+            </div>
+            <h2 class="tour-title">Mtatsminda — Tbilisi from Above</h2>
+            <p class="tour-desc">Take the historic Mtatsminda funicular to the top of Tbilisi's iconic hilltop park. At the summit you'll find panoramic views of the entire city, an amusement park with roller coasters and a ferris wheel, the famous Mtatsminda restaurant, and peaceful walking paths among the trees. A perfect evening outing.</p>
+            <div class="tour-highlights">
+                <h4>Highlights</h4>
+                <ul>
+                    <li>🚋 Ride the historic Mtatsminda funicular</li>
+                    <li>🌆 360° panoramic views over Tbilisi</li>
+                    <li>🎡 Ferris wheel ride above the city</li>
+                    <li>🎢 Roller coasters & amusement rides</li>
+                    <li>🍷 Dinner at Mtatsminda restaurant (optional)</li>
+                    <li>🌃 Stunning city lights at night</li>
+                </ul>
+            </div>
+            <div class="tour-meta-grid">
+                <div class="tour-meta-item"><span class="meta-icon">⏱</span><div><strong>Duration</strong><span>Half day (4–5 hrs)</span></div></div>
+                <div class="tour-meta-item"><span class="meta-icon">🚌</span><div><strong>Transport</strong><span>Hotel transfer</span></div></div>
+                <div class="tour-meta-item"><span class="meta-icon">👥</span><div><strong>Group size</strong><span>Max 20 guests</span></div></div>
+                <div class="tour-meta-item"><span class="meta-icon">📅</span><div><strong>Days</strong><span>Daily, eve departures</span></div></div>
+            </div>
+            <div class="tour-footer">
+                <div class="tour-price-block">
+                    <span class="tour-price">GEL 45 <small>/ person</small></span>
+                    <span class="tour-price-note">Funicular ticket included</span>
+                </div>
+                <a href="#booking" class="tour-book-btn" data-tour="Mtatsminda — Tbilisi from Above">Book This Tour</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Horse Riding -->
+    <div class="tour-card reverse" id="horseriding">
+        <div class="tour-gallery">
+            <div class="tour-gallery-main" style="background-image:url('images/tours/horse-1.png')"></div>
+            <div class="tour-gallery-thumbs">
+                <div class="tour-thumb active" style="background-image:url('images/tours/horse-1.png')" data-full="images/tours/horse-1.png"></div>
+                <div class="tour-thumb" style="background-image:url('images/tours/horse-2.png')" data-full="images/tours/horse-2.png"></div>
+                <div class="tour-thumb" style="background-image:url('images/tours/horse-3.png')" data-full="images/tours/horse-3.png"></div>
+                <div class="tour-thumb" style="background-image:url('images/tours/horse-4.png')" data-full="images/tours/horse-4.png"></div>
+            </div>
+        </div>
+        <div class="tour-info">
+            <div class="tour-tags">
+                <span class="tour-tag adventure">Adventure</span>
+                <span class="tour-tag nature">Nature</span>
+            </div>
+            <h2 class="tour-title">Horseback Riding in the Georgian Highlands</h2>
+            <p class="tour-desc">Experience the Georgian countryside the traditional way — on horseback. Our certified guides lead small groups through mountain meadows, forest trails, and open valleys with sweeping views of the Caucasus range. Suitable for beginners and experienced riders alike. All horses are calm, well-trained, and well-cared for.</p>
+            <div class="tour-highlights">
+                <h4>Highlights</h4>
+                <ul>
+                    <li>🐴 Guided mountain horseback trail</li>
+                    <li>🏔 Sweeping Caucasus ridge views</li>
+                    <li>🌿 Forest and alpine meadow routes</li>
+                    <li>👨‍🏫 Certified instructor for beginners</li>
+                    <li>📸 Professional photo stop at the summit</li>
+                    <li>🍵 Georgian tea and snacks at the end</li>
+                </ul>
+            </div>
+            <div class="tour-meta-grid">
+                <div class="tour-meta-item"><span class="meta-icon">⏱</span><div><strong>Duration</strong><span>Half day (4 hrs)</span></div></div>
+                <div class="tour-meta-item"><span class="meta-icon">🚐</span><div><strong>Transport</strong><span>Minivan from hotel</span></div></div>
+                <div class="tour-meta-item"><span class="meta-icon">👥</span><div><strong>Group size</strong><span>Max 8 riders</span></div></div>
+                <div class="tour-meta-item"><span class="meta-icon">📅</span><div><strong>Days</strong><span>Tue, Thu, Sat & Sun</span></div></div>
+            </div>
+            <div class="tour-footer">
+                <div class="tour-price-block">
+                    <span class="tour-price">GEL 110 <small>/ person</small></span>
+                    <span class="tour-price-note">Helmet & gear included</span>
+                </div>
+                <a href="#booking" class="tour-book-btn" data-tour="Horseback Riding in the Georgian Highlands">Book This Tour</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Free University -->
+    <div class="tour-card freeuni-card" id="freeuni">
+        <div class="tour-gallery">
+            <div class="tour-gallery-main" style="background-image:url('images/tours/freeuni-2.png')"></div>
+            <div class="tour-gallery-thumbs">
+                <div class="tour-thumb active" style="background-image:url('images/tours/freeuni-2.png')" data-full="images/tours/freeuni-2.png"></div>
+                <div class="tour-thumb" style="background-image:url('images/tours/freeuni-1.png')" data-full="images/tours/freeuni-1.png"></div>
+                <div class="tour-thumb" style="background-image:url('images/tours/freeuni-3.png')" data-full="images/tours/freeuni-3.png"></div>
+            </div>
+        </div>
+        <div class="tour-info">
+            <div class="tour-tags">
+                <span class="tour-tag culture">Culture</span>
+                <span class="tour-tag education">Education</span>
+            </div>
+            <h2 class="tour-title">Free University of Tbilisi — A Symbol of Excellence</h2>
+            <p class="tour-desc">The Free University of Tbilisi, housed on the stunning Kakha Bendukidze Campus, is home to Georgia's brightest students and most innovative minds. This guided campus visit lets you walk through the modern facilities, hear about Georgia's educational renaissance, enjoy breathtaking views over Tbilisi from the hilltop campus, and witness the energy of a university that has become a symbol of the country's future.</p>
+            <div class="tour-highlights">
+                <h4>Highlights</h4>
+                <ul>
+                    <li>🎓 Guided campus tour (Kakha Bendukidze Campus)</li>
+                    <li>🏛 Architecture & design walk</li>
+                    <li>🌆 Panoramic views over Tbilisi valley</li>
+                    <li>📚 Visit to the award-winning university library</li>
+                    <li>🤝 Meet students and faculty (optional)</li>
+                    <li>☕ Coffee & chat at the campus café</li>
+                </ul>
+            </div>
+            <div class="tour-meta-grid">
+                <div class="tour-meta-item"><span class="meta-icon">⏱</span><div><strong>Duration</strong><span>Half day (3 hrs)</span></div></div>
+                <div class="tour-meta-item"><span class="meta-icon">🚌</span><div><strong>Transport</strong><span>Hotel transfer</span></div></div>
+                <div class="tour-meta-item"><span class="meta-icon">👥</span><div><strong>Group size</strong><span>Max 15 guests</span></div></div>
+                <div class="tour-meta-item"><span class="meta-icon">📅</span><div><strong>Days</strong><span>Mon – Fri</span></div></div>
+            </div>
+            <div class="tour-footer">
+                <div class="tour-price-block">
+                    <span class="tour-price">GEL 30 <small>/ person</small></span>
+                    <span class="tour-price-note">Campus coffee included</span>
+                </div>
+                <a href="#booking" class="tour-book-btn" data-tour="Free University of Tbilisi — A Symbol of Excellence">Book This Tour</a>
+            </div>
+        </div>
+    </div>
+
+</section>
+
+<!-- Booking -->
+<section class="tours-booking" id="booking">
+    <div class="tours-booking-inner">
+        <div class="tours-booking-text">
+            <h2>Book a Tour</h2>
+            <p>Reserve your place on any of our tours. We will send you a confirmation email with the full itinerary and meeting point. Cancellations are free up to 24 hours before departure.</p>
+            <div class="tours-included">
+                <h4>Always included</h4>
+                <ul>
+                    <li>✓ Hotel pickup & drop-off</li>
+                    <li>✓ English-speaking licensed guide</li>
+                    <li>✓ All entry fees</li>
+                    <li>✓ Bottled water</li>
+                    <li>✓ 24-hour cancellation</li>
+                </ul>
+            </div>
+        </div>
+        <form class="tours-form" id="tours-form" novalidate>
+            <div class="field">
+                <label for="t-name">Full name</label>
+                <input type="text" id="t-name" placeholder="Your full name" required />
+            </div>
+            <div class="field">
+                <label for="t-email">Email address</label>
+                <input type="email" id="t-email" placeholder="you@example.com" required />
+            </div>
+            <div class="field">
+                <label for="t-tour">Select a tour</label>
+                <select id="t-tour" required>
+                    <option value="">Choose a tour…</option>
+                    <option>Kazbegi & Gergeti Trinity Church — GEL 120</option>
+                    <option>Gomis Mta — Above the Clouds — GEL 220</option>
+                    <option>Tusheti — Ancient Towers & Wild Mountains — GEL 380</option>
+                    <option>Kass Land — Georgia's Adventure Park — GEL 95</option>
+                    <option>Mtatsminda — Tbilisi from Above — GEL 45</option>
+                    <option>Horseback Riding in the Georgian Highlands — GEL 110</option>
+                    <option>Free University of Tbilisi — GEL 30</option>
+                </select>
+            </div>
+            <div class="field-row-two">
+                <div class="field">
+                    <label for="t-date">Date</label>
+                    <input type="date" id="t-date" required />
+                </div>
+                <div class="field">
+                    <label for="t-guests">Guests</label>
+                    <select id="t-guests">
+                        <option>1 guest</option>
+                        <option>2 guests</option>
+                        <option>3 guests</option>
+                        <option>4 guests</option>
+                        <option>5 guests</option>
+                        <option>6+ guests</option>
+                    </select>
+                </div>
+            </div>
+            <div class="field">
+                <label for="t-notes">Special requests (optional)</label>
+                <textarea id="t-notes" rows="2" placeholder="Dietary requirements, accessibility needs…"></textarea>
+            </div>
+            <button type="submit" class="tours-submit">Reserve My Place</button>
+            <p class="form-status" id="t-status"></p>
+        </form>
+    </div>
+</section>
+
+<!-- Reviews -->
+<section class="tours-reviews">
+    <div class="tours-section-header">
+        <h2>What Our Guests Say</h2>
+    </div>
+    <div class="tours-reviews-grid">
+        <div class="tours-review-card">
+            <div class="tours-stars">★★★★★</div>
+            <p>"The Kazbegi trip was the highlight of our entire stay in Georgia. The views of Mount Kazbek from the Gergeti church were beyond anything I could have imagined. Our guide was fantastic."</p>
+            <div class="tours-reviewer">
+                <div class="tours-reviewer-avatar">S</div>
+                <div><strong>Sophie Müller</strong><span>Berlin, Germany</span></div>
+            </div>
+        </div>
+        <div class="tours-review-card">
+            <div class="tours-stars">★★★★★</div>
+            <p>"Gomis Mta overnight was absolutely magical. Waking up above the clouds at sunrise was one of the most beautiful moments of my life. The camping setup was comfortable and the food was delicious."</p>
+            <div class="tours-reviewer">
+                <div class="tours-reviewer-avatar">L</div>
+                <div><strong>Luca Ferrari</strong><span>Milan, Italy</span></div>
+            </div>
+        </div>
+        <div class="tours-review-card">
+            <div class="tours-stars">★★★★★</div>
+            <p>"We did the horseback riding tour with our teenage children and everyone loved it. Even our youngest who had never ridden before felt completely safe. Breathtaking views."</p>
+            <div class="tours-reviewer">
+                <div class="tours-reviewer-avatar">K</div>
+                <div><strong>Karen & David Walsh</strong><span>Dublin, Ireland</span></div>
+            </div>
+        </div>
+        <div class="tours-review-card">
+            <div class="tours-stars">★★★★★</div>
+            <p>"Tusheti is unlike anywhere else on Earth. The drive over Abano Pass alone was worth the trip. Staying in a traditional guesthouse and exploring the fortress ruins was unforgettable."</p>
+            <div class="tours-reviewer">
+                <div class="tours-reviewer-avatar">A</div>
+                <div><strong>Arjun Sharma</strong><span>Mumbai, India</span></div>
+            </div>
+        </div>
+        <div class="tours-review-card">
+            <div class="tours-stars">★★★★★</div>
+            <p>"Kass Land with the kids was a full day of non-stop fun. The Diamond Bridge zipline is something else entirely — and the rainbow slides had the whole family laughing all day."</p>
+            <div class="tours-reviewer">
+                <div class="tours-reviewer-avatar">Y</div>
+                <div><strong>Yuki Tanaka</strong><span>Tokyo, Japan</span></div>
+            </div>
+        </div>
+        <div class="tours-review-card">
+            <div class="tours-stars">★★★★★</div>
+            <p>"The Free University campus tour was a genuine surprise. I expected a brief walk-around but our guide gave us deep insight into Georgia's education story. The campus views over Tbilisi are spectacular."</p>
+            <div class="tours-reviewer">
+                <div class="tours-reviewer-avatar">N</div>
+                <div><strong>Nino Kvaratskhelia</strong><span>Tbilisi, Georgia</span></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer id="footer">
+    <div class="footer-grid">
+        <div class="footer-column">
+            <p class="footer-brand">OOP <span>Hotel</span></p>
+            <p class="footer-address">12 Rustaveli Avenue<br/>Tbilisi, Georgia 0108</p>
+        </div>
+        <div class="footer-column">
+            <p class="footer-column-title">Hotel</p>
+            <ul>
+                <li><a href="index.html#rooms">Rooms</a></li>
+                <li><a href="index.html#services">Services</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+        <div class="footer-column">
+            <p class="footer-column-title">Tours</p>
+            <ul>
+                <li><a href="#kazbegi">Kazbegi</a></li>
+                <li><a href="#gomismta">Gomis Mta</a></li>
+                <li><a href="#tusheti">Tusheti</a></li>
+                <li><a href="#kassland">Kass Land</a></li>
+                <li><a href="#mtatsminda">Mtatsminda</a></li>
+                <li><a href="#horseriding">Horse Riding</a></li>
+                <li><a href="#freeuni">Free University</a></li>
+            </ul>
+        </div>
+        <div class="footer-column">
+            <p class="footer-column-title">Legal</p>
+            <ul>
+                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="#">Terms of Use</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>© 2025 OOP Hotel. All rights reserved.</p>
+        <div class="footer-socials">
+            <a href="#">Instagram</a>
+            <a href="#">Facebook</a>
+            <a href="#">LinkedIn</a>
+        </div>
+    </div>
+</footer>
+
+<script src="js/main.js"></script>
+<script src="js/auth-nav.js"></script>
+<script src="js/tours.js"></script>
+</body>
+</html>

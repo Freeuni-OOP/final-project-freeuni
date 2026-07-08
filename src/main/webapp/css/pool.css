@@ -1,0 +1,670 @@
+/* =============================
+   Pool Page Styles
+   ============================= */
+
+/* ---- Hero ---- */
+.pool-hero {
+    position: relative;
+    height: 88vh;
+    min-height: 560px;
+    background: url('../images/pool/pool-main.png') center / cover no-repeat;
+    display: flex;
+    align-items: center;
+}
+
+.pool-hero-overlay {
+    position: relative;
+    z-index: 2;
+    max-width: 700px;
+    margin-left: 8vw;
+    color: #fff;
+}
+
+.pool-hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to right, rgba(0,30,50,0.75) 40%, transparent 100%);
+    z-index: 1;
+}
+
+.pool-hero-label {
+    font-size: 0.8rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #7dddf0;
+    margin-bottom: 12px;
+}
+
+.pool-hero-title {
+    font-size: clamp(3rem, 7vw, 5.5rem);
+    font-weight: 700;
+    line-height: 1;
+    margin-bottom: 16px;
+}
+
+.pool-hero-sub {
+    font-size: 1.2rem;
+    opacity: 0.9;
+    margin-bottom: 32px;
+}
+
+/* ---- Stats bar ---- */
+.pool-stats {
+    display: flex;
+    justify-content: center;
+    gap: 0;
+    background: #0a2233;
+    color: #fff;
+}
+
+.pool-stat {
+    flex: 1;
+    max-width: 260px;
+    text-align: center;
+    padding: 28px 16px;
+    border-right: 1px solid rgba(255,255,255,0.08);
+}
+
+.pool-stat:last-child {
+    border-right: none;
+}
+
+.pool-stat-number {
+    display: block;
+    font-size: 1.9rem;
+    font-weight: 700;
+    color: #7dddf0;
+    margin-bottom: 4px;
+}
+
+.pool-stat-label {
+    font-size: 0.78rem;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    opacity: 0.65;
+}
+
+/* ---- Section header ---- */
+.pool-section-header {
+    text-align: center;
+    max-width: 680px;
+    margin: 0 auto 52px;
+    padding: 0 20px;
+}
+
+.pool-section-header h2 {
+    font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+    margin-bottom: 14px;
+    color: #0a2233;
+}
+
+.pool-section-header p {
+    color: #6b7a8a;
+    line-height: 1.7;
+}
+
+.pool-section-header.light h2 {
+    color: #fff;
+}
+
+.pool-section-header.light p {
+    color: rgba(255,255,255,0.7);
+}
+
+/* ---- Pools ---- */
+.pool-list {
+    padding: 80px 5vw;
+    background: #f7f9fc;
+}
+
+.pool-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(480px, 1fr));
+    gap: 32px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.pool-card {
+    background: #fff;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 24px rgba(0,30,50,0.08);
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.25s, box-shadow 0.25s;
+}
+
+.pool-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 36px rgba(0,30,50,0.14);
+}
+
+.featured-pool {
+    border: 2px solid #c8a96e;
+}
+
+.pool-card-img {
+    height: 220px;
+    background-size: cover;
+    background-position: center;
+}
+
+.pool-img-1 { background-image: url('../images/pool/pool-slides.png'); }
+.pool-img-2 { background-image: url('../images/pool/pool-dive.png'); }
+.pool-img-3 { background-image: url('../images/pool/pool-relax.png'); }
+.pool-img-4 { background-image: url('../images/pool/pool-luxury.png'); }
+
+.pool-card-body {
+    padding: 24px 28px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.pool-card-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 14px;
+    gap: 12px;
+}
+
+.pool-card-top h3 {
+    font-size: 1.25rem;
+    color: #0a2233;
+    margin: 6px 0 0;
+}
+
+.pool-tag {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    background: #e8f4fb;
+    color: #1a7aaa;
+    padding: 3px 10px;
+    border-radius: 20px;
+}
+
+.premium-tag {
+    background: #fdf3e0;
+    color: #a07830;
+}
+
+.pool-capacity {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.78rem;
+    white-space: nowrap;
+    color: #4a5568;
+}
+
+.capacity-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    display: inline-block;
+    flex-shrink: 0;
+}
+
+.capacity-dot.green  { background: #2ecc71; box-shadow: 0 0 0 3px rgba(46,204,113,0.2); }
+.capacity-dot.yellow { background: #f39c12; box-shadow: 0 0 0 3px rgba(243,156,18,0.2); }
+.capacity-dot.red    { background: #e74c3c; box-shadow: 0 0 0 3px rgba(231,76,60,0.2); }
+
+.pool-card-body > p {
+    color: #5a6a7a;
+    line-height: 1.65;
+    margin-bottom: 16px;
+    font-size: 0.92rem;
+}
+
+.pool-features {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6px 16px;
+}
+
+.pool-features li {
+    font-size: 0.82rem;
+    color: #4a5568;
+}
+
+.pool-card-footer {
+    margin-top: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 16px;
+    border-top: 1px solid #f0f0f0;
+}
+
+.pool-price {
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: #0a2233;
+}
+
+.pool-price small {
+    font-size: 0.78rem;
+    font-weight: 400;
+    color: #8a99a8;
+}
+
+.pool-book-btn {
+    background: #0a6ead;
+    color: #fff;
+    padding: 10px 22px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 0.88rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    transition: background 0.2s;
+}
+
+.pool-book-btn:hover {
+    background: #085d96;
+}
+
+.featured-pool .pool-book-btn {
+    background: #c8a96e;
+    color: #fff;
+}
+
+.featured-pool .pool-book-btn:hover {
+    background: #b8962c;
+}
+
+/* ---- Activities ---- */
+.pool-activities {
+    padding: 80px 5vw;
+    background: #0a2233;
+}
+
+.activities-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 24px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.activity-card {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 14px;
+    overflow: hidden;
+    transition: background 0.2s;
+}
+
+.activity-card:hover {
+    background: rgba(255,255,255,0.09);
+}
+
+.activity-img {
+    height: 180px;
+    background-size: cover;
+    background-position: center;
+}
+
+.activity-img-1 { background-image: url('../images/pool/pool-splash.png'); }
+.activity-img-2 { background-image: url('../images/pool/pool-dive.png'); }
+.activity-img-3 { background-image: url('../images/pool/pool-relax.png'); }
+.activity-img-4 { background-image: url('../images/pool/pool-main.png'); }
+
+.activity-body {
+    padding: 20px;
+}
+
+.activity-body h4 {
+    color: #fff;
+    font-size: 1rem;
+    margin-bottom: 8px;
+}
+
+.activity-body p {
+    color: rgba(255,255,255,0.6);
+    font-size: 0.85rem;
+    line-height: 1.6;
+    margin-bottom: 14px;
+}
+
+.activity-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    font-size: 0.78rem;
+    color: rgba(255,255,255,0.5);
+}
+
+.activity-price {
+    color: #7dddf0 !important;
+    font-weight: 700;
+    font-size: 0.88rem !important;
+    margin-top: 4px;
+}
+
+/* ---- Notices ---- */
+.pool-notices {
+    background: #fff4e0;
+    padding: 72px 5vw;
+}
+
+.pool-notices-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.pool-notices-inner h2 {
+    text-align: center;
+    font-size: clamp(1.6rem, 3vw, 2.4rem);
+    color: #0a2233;
+    margin-bottom: 40px;
+}
+
+.notices-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 28px;
+}
+
+.notice-item {
+    display: flex;
+    gap: 16px;
+    background: #fff;
+    padding: 24px;
+    border-radius: 12px;
+    box-shadow: 0 2px 14px rgba(0,30,50,0.06);
+}
+
+.notice-icon {
+    font-size: 1.8rem;
+    flex-shrink: 0;
+}
+
+.notice-item h4 {
+    color: #0a2233;
+    margin-bottom: 6px;
+    font-size: 0.95rem;
+}
+
+.notice-item p {
+    color: #6b7a8a;
+    font-size: 0.83rem;
+    line-height: 1.65;
+    margin: 0;
+}
+
+/* ---- Booking ---- */
+.pool-booking {
+    padding: 80px 5vw;
+    background: #f7f9fc;
+}
+
+.pool-booking-inner {
+    max-width: 1060px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 60px;
+    align-items: start;
+}
+
+.pool-booking-text h2 {
+    font-size: clamp(1.8rem, 3vw, 2.4rem);
+    color: #0a2233;
+    margin-bottom: 16px;
+}
+
+.pool-booking-text p {
+    color: #6b7a8a;
+    line-height: 1.7;
+    margin-bottom: 32px;
+}
+
+.pool-schedule {
+    background: #e8f4fb;
+    border-left: 4px solid #0a6ead;
+    padding: 20px 24px;
+    border-radius: 8px;
+}
+
+.pool-schedule h4 {
+    color: #0a2233;
+    margin-bottom: 12px;
+    font-size: 0.95rem;
+}
+
+.pool-schedule ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.pool-schedule li {
+    font-size: 0.85rem;
+    color: #3a5060;
+}
+
+/* ---- Form ---- */
+.pool-form {
+    background: #fff;
+    border-radius: 16px;
+    padding: 36px 32px;
+    box-shadow: 0 4px 24px rgba(0,30,50,0.09);
+}
+
+.pool-form .field {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 18px;
+}
+
+.pool-form label {
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: #3a4a5a;
+    margin-bottom: 6px;
+    letter-spacing: 0.3px;
+}
+
+.pool-form input,
+.pool-form select,
+.pool-form textarea {
+    border: 1.5px solid #d8e2ec;
+    border-radius: 8px;
+    padding: 10px 14px;
+    font-size: 0.93rem;
+    color: #1a2a3a;
+    background: #f9fbfd;
+    transition: border-color 0.2s;
+    outline: none;
+    font-family: inherit;
+}
+
+.pool-form input:focus,
+.pool-form select:focus,
+.pool-form textarea:focus {
+    border-color: #0a6ead;
+    background: #fff;
+}
+
+.pool-form .field-row-two {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin-bottom: 18px;
+}
+
+.pool-form textarea {
+    resize: vertical;
+    min-height: 64px;
+}
+
+.pool-submit {
+    width: 100%;
+    padding: 14px;
+    background: #0a6ead;
+    color: #fff;
+    border: none;
+    border-radius: 9px;
+    font-size: 0.97rem;
+    font-weight: 700;
+    cursor: pointer;
+    letter-spacing: 0.5px;
+    transition: background 0.2s;
+    margin-top: 4px;
+}
+
+.pool-submit:hover {
+    background: #085d96;
+}
+
+.pool-submit:disabled {
+    background: #89b8d8;
+    cursor: not-allowed;
+}
+
+.form-status {
+    text-align: center;
+    margin-top: 12px;
+    font-size: 0.88rem;
+    min-height: 20px;
+    color: #3a5060;
+}
+
+.form-status.success {
+    color: #1a8a4a;
+    font-weight: 600;
+}
+
+.form-status.error {
+    color: #c0392b;
+}
+
+/* ---- Reviews ---- */
+.pool-reviews {
+    padding: 80px 5vw;
+    background: #fff;
+}
+
+.pool-reviews-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 24px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.pool-review-card {
+    background: #f7f9fc;
+    border-radius: 14px;
+    padding: 28px;
+    border-left: 4px solid #0a6ead;
+    transition: box-shadow 0.2s;
+}
+
+.pool-review-card:hover {
+    box-shadow: 0 6px 24px rgba(0,30,50,0.1);
+}
+
+.pool-stars {
+    color: #f0aa00;
+    font-size: 1.1rem;
+    margin-bottom: 12px;
+    letter-spacing: 2px;
+}
+
+.pool-review-card p {
+    font-style: italic;
+    color: #3a4a5a;
+    line-height: 1.7;
+    margin-bottom: 18px;
+    font-size: 0.9rem;
+}
+
+.pool-reviewer {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.pool-reviewer-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #0a6ead;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 1rem;
+    flex-shrink: 0;
+}
+
+.pool-reviewer strong {
+    display: block;
+    font-size: 0.88rem;
+    color: #0a2233;
+}
+
+.pool-reviewer span {
+    font-size: 0.78rem;
+    color: #8a99a8;
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 1000px) {
+    .pool-cards {
+        grid-template-columns: 1fr;
+    }
+
+    .pool-booking-inner {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .pool-stats {
+        flex-wrap: wrap;
+    }
+
+    .pool-stat {
+        min-width: 140px;
+        border-right: none;
+        border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+}
+
+@media (max-width: 640px) {
+    .pool-hero-overlay {
+        margin-left: 5vw;
+        margin-right: 5vw;
+    }
+
+    .pool-form {
+        padding: 24px 18px;
+    }
+
+    .pool-form .field-row-two {
+        grid-template-columns: 1fr;
+    }
+
+    .activities-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .pool-features {
+        grid-template-columns: 1fr;
+    }
+}

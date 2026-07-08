@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pool & Aqua — OOP Hotel</title>
+    <link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/pool.css" />
+</head>
+<body>
+
+<nav id="navigation">
+    <a href="index.html" class="navbar-hotel-logo">OOP <span>Hotel</span></a>
+    <ul class="navbar-links">
+        <li><a href="index.html#rooms">Rooms</a></li>
+        <li><a href="index.html#services">Services</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="index.html#reviews">Reviews</a></li>
+        <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="navbar-user" id="navbar-user">
+        <a href="login.html" class="navbar-booking" id="nav-signin-btn">Sign in</a>
+    </div>
+</nav>
+
+<!-- Hero -->
+<section class="pool-hero">
+    <div class="pool-hero-overlay">
+        <p class="pool-hero-label">Aqua & Swimming</p>
+        <h1 class="pool-hero-title">OOP Pool</h1>
+        <p class="pool-hero-sub">Four pools. All ages. Open every day.</p>
+        <a href="#booking" class="button-primary">Reserve a Slot</a>
+    </div>
+</section>
+
+<!-- Stats bar -->
+<div class="pool-stats">
+    <div class="pool-stat">
+        <span class="pool-stat-number">4</span>
+        <span class="pool-stat-label">Pools</span>
+    </div>
+    <div class="pool-stat">
+        <span class="pool-stat-number">28°C</span>
+        <span class="pool-stat-label">Water temperature</span>
+    </div>
+    <div class="pool-stat">
+        <span class="pool-stat-number">07:00–22:00</span>
+        <span class="pool-stat-label">Open daily</span>
+    </div>
+    <div class="pool-stat">
+        <span class="pool-stat-number">120</span>
+        <span class="pool-stat-label">Max capacity</span>
+    </div>
+</div>
+
+<!-- Pools -->
+<section class="pool-list" id="pools">
+    <div class="pool-section-header">
+        <h2>Our Pools</h2>
+        <p>Each pool is designed for a different purpose and age group. Capacity is strictly managed — book in advance to guarantee your slot.</p>
+    </div>
+
+    <div class="pool-cards">
+
+        <div class="pool-card">
+            <div class="pool-card-img pool-img-1"></div>
+            <div class="pool-card-body">
+                <div class="pool-card-top">
+                    <div>
+                        <span class="pool-tag">All ages · 25 m</span>
+                        <h3>Leisure Pool</h3>
+                    </div>
+                    <div class="pool-capacity">
+                        <span class="capacity-dot green"></span>
+                        <span>Available</span>
+                    </div>
+                </div>
+                <p>A bright, shallow-entry leisure pool with lounge chairs along the deck. Perfect for families and casual swimmers. Water depth 0.9 m – 1.6 m.</p>
+                <ul class="pool-features">
+                    <li>🏊 Depth: 0.9 m – 1.6 m</li>
+                    <li>👥 Max capacity: 40 people</li>
+                    <li>🎯 Ages: All ages welcome</li>
+                    <li>🌡 Water: 29°C</li>
+                </ul>
+                <div class="pool-card-footer">
+                    <span class="pool-price">GEL 35 <small>/ session</small></span>
+                    <a href="#booking" class="pool-book-btn">Book slot</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="pool-card">
+            <div class="pool-card-img pool-img-2"></div>
+            <div class="pool-card-body">
+                <div class="pool-card-top">
+                    <div>
+                        <span class="pool-tag">Adults · 50 m</span>
+                        <h3>Olympic Lane Pool</h3>
+                    </div>
+                    <div class="pool-capacity">
+                        <span class="capacity-dot yellow"></span>
+                        <span>Filling up</span>
+                    </div>
+                </div>
+                <p>A full 50-metre competition pool with 8 lanes. Ideal for serious swimmers and lap training. Lifeguard on duty at all times.</p>
+                <ul class="pool-features">
+                    <li>🏊 Depth: 1.8 m – 2.2 m</li>
+                    <li>👥 Max capacity: 32 people (4/lane)</li>
+                    <li>🎯 Ages: 16+ only</li>
+                    <li>🌡 Water: 27°C</li>
+                </ul>
+                <div class="pool-card-footer">
+                    <span class="pool-price">GEL 45 <small>/ session</small></span>
+                    <a href="#booking" class="pool-book-btn">Book slot</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="pool-card">
+            <div class="pool-card-img pool-img-3"></div>
+            <div class="pool-card-body">
+                <div class="pool-card-top">
+                    <div>
+                        <span class="pool-tag">Children · Heated</span>
+                        <h3>Kids' Splash Pool</h3>
+                    </div>
+                    <div class="pool-capacity">
+                        <span class="capacity-dot green"></span>
+                        <span>Available</span>
+                    </div>
+                </div>
+                <p>A heated shallow pool designed exclusively for children under 12, with water slides, spray jets, and a zero-entry wading section.</p>
+                <ul class="pool-features">
+                    <li>🏊 Depth: 0.3 m – 0.8 m</li>
+                    <li>👥 Max capacity: 25 children + 10 adults</li>
+                    <li>🎯 Ages: Under 12 (adult supervision required)</li>
+                    <li>🌡 Water: 31°C</li>
+                </ul>
+                <div class="pool-card-footer">
+                    <span class="pool-price">GEL 25 <small>/ child</small></span>
+                    <a href="#booking" class="pool-book-btn">Book slot</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="pool-card featured-pool">
+            <div class="pool-card-img pool-img-4"></div>
+            <div class="pool-card-body">
+                <div class="pool-card-top">
+                    <div>
+                        <span class="pool-tag premium-tag">Private · Luxury</span>
+                        <h3>Private Pool Suite</h3>
+                    </div>
+                    <div class="pool-capacity">
+                        <span class="capacity-dot green"></span>
+                        <span>Available</span>
+                    </div>
+                </div>
+                <p>An exclusive private pool with waterfall feature, wood-panelled walls, and personal attendant. Bookable for 1–2 hour private sessions. Maximum 8 guests.</p>
+                <ul class="pool-features">
+                    <li>🏊 Depth: 1.2 m</li>
+                    <li>👥 Max capacity: 8 guests</li>
+                    <li>🎯 Ages: 18+ only</li>
+                    <li>🌡 Water: 30°C</li>
+                </ul>
+                <div class="pool-card-footer">
+                    <span class="pool-price">GEL 280 <small>/ hour</small></span>
+                    <a href="#booking" class="pool-book-btn">Book slot</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- Activities -->
+<section class="pool-activities" id="activities">
+    <div class="pool-section-header light">
+        <h2>Aqua Activities</h2>
+        <p>Structured sessions run daily. All activities require a separate booking on top of pool entry.</p>
+    </div>
+    <div class="activities-grid">
+
+        <div class="activity-card">
+            <div class="activity-img activity-img-1"></div>
+            <div class="activity-body">
+                <h4>Aqua Aerobics</h4>
+                <p>Low-impact group fitness class in the leisure pool. Suitable for all fitness levels.</p>
+                <div class="activity-meta">
+                    <span>🕗 07:30, 10:00, 17:00</span>
+                    <span>👥 Max 20</span>
+                    <span class="activity-price">GEL 20</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="activity-card">
+            <div class="activity-img activity-img-2"></div>
+            <div class="activity-body">
+                <h4>Lane Swimming</h4>
+                <p>Dedicated lap-swimming sessions in the Olympic pool. Lanes reserved per level.</p>
+                <div class="activity-meta">
+                    <span>🕗 06:30 – 09:00 daily</span>
+                    <span>👥 Max 8/lane</span>
+                    <span class="activity-price">Included</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="activity-card">
+            <div class="activity-img activity-img-3"></div>
+            <div class="activity-body">
+                <h4>Kids' Swimming Lessons</h4>
+                <p>Certified instructors teach water confidence and technique to children aged 4–12.</p>
+                <div class="activity-meta">
+                    <span>🕗 Weekends 09:00 – 11:00</span>
+                    <span>👥 Max 8 children</span>
+                    <span class="activity-price">GEL 40</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="activity-card">
+            <div class="activity-img activity-img-4"></div>
+            <div class="activity-body">
+                <h4>Diving Clinic</h4>
+                <p>Learn the basics of competitive diving from our certified coaches. Adults and teens.</p>
+                <div class="activity-meta">
+                    <span>🕗 Tue & Thu 18:00</span>
+                    <span>👥 Max 6</span>
+                    <span class="activity-price">GEL 55</span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- Notices -->
+<section class="pool-notices">
+    <div class="pool-notices-inner">
+        <h2>Important notices</h2>
+        <div class="notices-grid">
+            <div class="notice-item">
+                <span class="notice-icon">⚠️</span>
+                <div>
+                    <h4>Capacity limits enforced</h4>
+                    <p>Each pool has a strict maximum occupancy. Once full, no additional guests may enter until others leave. We recommend booking 24 hours in advance.</p>
+                </div>
+            </div>
+            <div class="notice-item">
+                <span class="notice-icon">🧒</span>
+                <div>
+                    <h4>Children under 12</h4>
+                    <p>Children must be accompanied by an adult (18+) at all times. Children under 12 are only permitted in the Kids' Splash Pool and Leisure Pool.</p>
+                </div>
+            </div>
+            <div class="notice-item">
+                <span class="notice-icon">👙</span>
+                <div>
+                    <h4>Swimwear required</h4>
+                    <p>Proper swimwear is mandatory. Board shorts are permitted in the leisure pool only. Swim caps are required in the Olympic lane pool.</p>
+                </div>
+            </div>
+            <div class="notice-item">
+                <span class="notice-icon">🔄</span>
+                <div>
+                    <h4>Cancellation policy</h4>
+                    <p>Free cancellation up to 2 hours before your session. No-shows are charged in full. You will receive an email reminder 1 hour before your booking.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Booking -->
+<section class="pool-booking" id="booking">
+    <div class="pool-booking-inner">
+        <div class="pool-booking-text">
+            <h2>Reserve your slot</h2>
+            <p>Sessions last 90 minutes. You will receive a confirmation email with your entry time and pool number. Arrive 10 minutes early to allow time for changing.</p>
+            <div class="pool-schedule">
+                <h4>Daily session times</h4>
+                <ul>
+                    <li><strong>Morning:</strong> 07:00 / 08:30 / 10:00</li>
+                    <li><strong>Afternoon:</strong> 12:00 / 13:30 / 15:00</li>
+                    <li><strong>Evening:</strong> 17:00 / 18:30 / 20:00</li>
+                </ul>
+            </div>
+        </div>
+
+        <form class="pool-form" id="pool-form" novalidate>
+            <div class="field">
+                <label for="pool-name">Full name</label>
+                <input type="text" id="pool-name" placeholder="Your full name" required />
+            </div>
+            <div class="field">
+                <label for="pool-email">Email address</label>
+                <input type="email" id="pool-email" placeholder="you@example.com" required />
+            </div>
+            <div class="field">
+                <label for="pool-select">Pool</label>
+                <select id="pool-select" required>
+                    <option value="">Select a pool</option>
+                    <option>Leisure Pool — GEL 35 / session</option>
+                    <option>Olympic Lane Pool — GEL 45 / session (16+)</option>
+                    <option>Kids' Splash Pool — GEL 25 / child (under 12)</option>
+                    <option>Private Pool Suite — GEL 280 / hour (18+)</option>
+                </select>
+            </div>
+            <div class="field">
+                <label for="pool-activity">Add an activity (optional)</label>
+                <select id="pool-activity">
+                    <option value="">No activity</option>
+                    <option>Aqua Aerobics — GEL 20</option>
+                    <option>Lane Swimming — Included</option>
+                    <option>Kids' Swimming Lessons — GEL 40</option>
+                    <option>Diving Clinic — GEL 55</option>
+                </select>
+            </div>
+            <div class="field-row-two">
+                <div class="field">
+                    <label for="pool-date">Date</label>
+                    <input type="date" id="pool-date" required />
+                </div>
+                <div class="field">
+                    <label for="pool-time">Session time</label>
+                    <select id="pool-time" required>
+                        <option value="">Select time</option>
+                        <option>07:00</option>
+                        <option>08:30</option>
+                        <option>10:00</option>
+                        <option>12:00</option>
+                        <option>13:30</option>
+                        <option>15:00</option>
+                        <option>17:00</option>
+                        <option>18:30</option>
+                        <option>20:00</option>
+                    </select>
+                </div>
+            </div>
+            <div class="field">
+                <label for="pool-guests">Number of guests</label>
+                <select id="pool-guests">
+                    <option>1 guest</option>
+                    <option>2 guests</option>
+                    <option>3 guests</option>
+                    <option>4 guests</option>
+                    <option>5+ guests</option>
+                </select>
+            </div>
+            <div class="field">
+                <label for="pool-notes">Special requests (optional)</label>
+                <textarea id="pool-notes" rows="2" placeholder="Accessibility needs, children's ages…"></textarea>
+            </div>
+            <button type="submit" class="form-submit pool-submit">Check Availability & Book</button>
+            <p class="form-status" id="pool-status"></p>
+        </form>
+    </div>
+</section>
+
+<!-- Reviews -->
+<section class="pool-reviews">
+    <div class="pool-section-header">
+        <h2>Guest Experiences</h2>
+    </div>
+    <div class="pool-reviews-grid">
+
+        <div class="pool-review-card">
+            <div class="pool-stars">★★★★★</div>
+            <p>"The Olympic pool is immaculate. I swam every morning during my stay. Lanes are well-organised, the water temperature is perfect, and the lifeguards are excellent."</p>
+            <div class="pool-reviewer">
+                <div class="pool-reviewer-avatar">M</div>
+                <div>
+                    <strong>Mikheil Tabidze</strong>
+                    <span>Tbilisi, Georgia</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="pool-review-card">
+            <div class="pool-stars">★★★★★</div>
+            <p>"We brought our kids and they absolutely loved the splash pool. The slides were a big hit. The staff were attentive and the whole area was spotlessly clean."</p>
+            <div class="pool-reviewer">
+                <div class="pool-reviewer-avatar">E</div>
+                <div>
+                    <strong>Elena Petrov</strong>
+                    <span>Moscow, Russia</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="pool-review-card">
+            <div class="pool-stars">★★★★★</div>
+            <p>"We hired the private pool for two hours for our anniversary. The waterfall feature, the warm lighting, and having it all to ourselves was unforgettable."</p>
+            <div class="pool-reviewer">
+                <div class="pool-reviewer-avatar">J</div>
+                <div>
+                    <strong>James & Sarah Cole</strong>
+                    <span>London, UK</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="pool-review-card">
+            <div class="pool-stars">★★★★★</div>
+            <p>"The aqua aerobics class at 07:30 was the best way to start the day. Small group, great instructor, and the leisure pool is beautiful in the morning light."</p>
+            <div class="pool-reviewer">
+                <div class="pool-reviewer-avatar">A</div>
+                <div>
+                    <strong>Anna Kowalski</strong>
+                    <span>Warsaw, Poland</span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- Footer -->
+<footer id="footer">
+    <div class="footer-grid">
+        <div class="footer-column">
+            <p class="footer-brand">OOP <span>Hotel</span></p>
+            <p class="footer-address">12 Rustaveli Avenue<br/>Tbilisi, Georgia 0108</p>
+        </div>
+        <div class="footer-column">
+            <p class="footer-column-title">Hotel</p>
+            <ul>
+                <li><a href="index.html#rooms">Rooms</a></li>
+                <li><a href="index.html#services">Services</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+        <div class="footer-column">
+            <p class="footer-column-title">Pool</p>
+            <ul>
+                <li><a href="#pools">Our Pools</a></li>
+                <li><a href="#activities">Activities</a></li>
+                <li><a href="#booking">Book a Slot</a></li>
+            </ul>
+        </div>
+        <div class="footer-column">
+            <p class="footer-column-title">Legal</p>
+            <ul>
+                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="#">Terms of Use</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>© 2025 OOP Hotel. All rights reserved.</p>
+        <div class="footer-socials">
+            <a href="#">Instagram</a>
+            <a href="#">Facebook</a>
+            <a href="#">LinkedIn</a>
+        </div>
+    </div>
+</footer>
+
+<script src="js/main.js"></script>
+<script src="js/auth-nav.js"></script>
+<script src="js/pool.js"></script>
+</body>
+</html>
