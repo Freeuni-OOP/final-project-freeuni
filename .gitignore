@@ -19,3 +19,7 @@ node_modules/
 
 # Local env / config
 .env
+
+
+# mail properties
+src/main/resources/mail.properties

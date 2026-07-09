@@ -59,13 +59,64 @@ document.addEventListener('DOMContentLoaded', function () {
     if (!valid) return;
 
     submitBtn.disabled = true;
-    status.textContent = 'Message sent. We will reply within one business day.';
-    status.className = 'form-status success';
-    form.reset();
 
-    setTimeout(function () {
-      submitBtn.disabled = false;
-    }, 1500);
+    const formData = new URLSearchParams();
+
+    const phone = document.getElementById("cf-phone").value;
+
+    formData.append('name', name.value);
+    formData.append('email', email.value);
+    formData.append('phone', document.getElementById('cf-phone').value);
+    formData.append('subject', subject.value);
+    formData.append('message', message.value);
+
+
+    const options = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded"
+      },
+      body: formData
+    };
+
+
+    fetch("/api/contact", options)
+
+        .then(function(response) {
+
+          if (response.ok) {
+            return response.json();
+          }
+
+          throw new Error("Request failed");
+
+        })
+
+        .then(function(data) {
+
+          status.textContent = "Message sent. We will reply within one business day.";
+          status.className = "form-status success";
+
+          form.reset();
+
+        })
+
+        .catch(function(error) {
+
+          console.log(error);
+
+          status.textContent = "Something went wrong. Please try again.";
+          status.className = "form-status error";
+
+        })
+
+        .finally(function() {
+
+          setTimeout(function() {
+            submitBtn.disabled = false;
+          }, 1500);
+
+        });
   });
 
 });
