@@ -1,0 +1,104 @@
+/* concierge page */
+
+.concierge-header {
+  text-align: center;
+  padding: 8rem 1.5rem 3rem;
+  background: var(--alt);
+  border-bottom: 1px solid var(--border);
+}
+
+.concierge-title {
+  font-size: clamp(2rem, 5vw, 3rem);
+  margin-bottom: 0.75rem;
+}
+
+.concierge-subtitle {
+  max-width: 540px;
+  margin: 0 auto;
+  color: var(--muted);
+}
+
+.help-section {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 3.5rem 1.5rem;
+}
+
+.section-head {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.section-title {
+  font-size: 1.6rem;
+  margin-bottom: 0.4rem;
+}
+
+.section-sub {
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+/* how we can help */
+.help-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1.25rem;
+}
+
+.help-item {
+  background: var(--card);
+  border: 1px solid var(--border);
+  padding: 1.5rem;
+  text-align: center;
+}
+
+.help-icon {
+  font-size: 1.8rem;
+}
+
+.help-item h3 {
+  font-size: 1.05rem;
+  margin: 0.6rem 0 0.3rem;
+}
+
+.help-item p {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+/* request form */
+.request-section {
+  background: var(--alt);
+  padding: 3.5rem 1.5rem;
+}
+
+.request-panel {
+  max-width: 640px;
+  margin: 0 auto;
+  background: var(--card);
+  border: 1px solid var(--border);
+  padding: 2rem;
+}
+
+.request-panel .section-title,
+.request-panel .section-sub {
+  text-align: center;
+}
+
+.request-panel .section-sub {
+  margin-bottom: 1.5rem;
+}
+
+/* two column rows */
+.field-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+@media (max-width: 560px) {
+  .field-grid {
+    grid-template-columns: 1fr;
+  }
+}
