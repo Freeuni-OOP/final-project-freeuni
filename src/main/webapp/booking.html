@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book your Luxury Stay — OOP Hotel</title>
+    <link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" href="css/booking.css" />
+    <style>
+        .auth-required-box {
+            background: var(--card);
+            border: 1px solid var(--border);
+            padding: 3rem 2rem;
+            text-align: center;
+            max-width: 500px;
+            margin: 4rem auto;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.03);
+        }
+        .auth-btn {
+            display: inline-block;
+            margin-top: 1.5rem;
+            padding: 0.8rem 2rem;
+            background: var(--accent);
+            color: white;
+            font-weight: 500;
+            text-decoration: none;
+            transition: background 0.2s;
+        }
+        .auth-btn:hover {
+            background: var(--accent-dark);
+        }
+        .hidden-content {
+            display: none !important;
+        }
+    </style>
+</head>
+<body class="booking-page-body">
+
+<!-- ეს ბლოკი გამოჩნდება მხოლოდ მაშინ, თუ იუზერი არ არის შესული -->
+<div id="auth-warning" class="auth-required-box hidden-content">
+    <h3 style="font-size: 1.6rem; margin-bottom: 0.8rem; color: var(--ink);">Authentication Required</h3>
+    <p style="color: var(--muted); font-size: 14px; line-height: 1.5;">
+        You need to be logged in to book a room. Please sign in or create an account to secure your reservation.
+    </p>
+    <a href="login.html" class="auth-btn">Sign In / Register</a>
+    <br><br>
+    <a href="index.html" style="font-size: 13px; color: var(--muted); text-decoration: underline;">Back to Home</a>
+</div>
+
+<!-- ძირითადი კონტენტი (თავიდან დამალულია hidden-content კლასით) -->
+<div id="booking-content" class="booking-wrapper hidden-content">
+    <a href="index.html" class="back-home">← Back to Home</a>
+    <h2 class="booking-main-title">Book Your Stay</h2>
+    <p class="booking-sub">Select your preferred room type on the left, and complete your reservation details on the right.</p>
+
+    <div class="booking-split-container">
+
+        <div class="left-rooms-side">
+            <!-- Deluxe Room -->
+            <div class="room-type-card" onclick="selectRoomType('deluxe', 101, 110)" id="card-deluxe">
+                <div class="card-image-side img-deluxe"></div>
+                <div class="card-info-side">
+                    <div class="room-meta">
+                        <h3>Deluxe Mountain View</h3>
+                        <p>Experience local charm and sweeping, crisp mountain vistas. Perfect for solo explorers or couples.</p>
+                    </div>
+                    <div class="room-price-tag">220 GEL <span>/ night</span></div>
+                </div>
+            </div>
+
+            <!-- Junior Suite -->
+            <div class="room-type-card" onclick="selectRoomType('suite', 201, 210)" id="card-suite">
+                <div class="card-image-side img-suite"></div>
+                <div class="card-info-side">
+                    <div class="room-meta">
+                        <h3>Junior Suite Comfort</h3>
+                        <p>Spacious, refined layout designed for prolonged stays. Includes a dedicated sitting area and premium amenities.</p>
+                    </div>
+                    <div class="room-price-tag">380 GEL <span>/ night</span></div>
+                </div>
+            </div>
+
+            <!-- Garden Villa -->
+            <div class="room-type-card" onclick="selectRoomType('villa', 301, 310)" id="card-villa">
+                <div class="card-image-side img-villa"></div>
+                <div class="card-info-side">
+                    <div class="room-meta">
+                        <h3>Garden Villa Premium</h3>
+                        <p>The ultimate private sanctuary surrounded by tranquil green gardens. Features a personal terrace and luxury spaces.</p>
+                    </div>
+                    <div class="room-price-tag">680 GEL <span>/ night</span></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="right-form-side">
+            <h3 class="form-title">Reservation Details</h3>
+
+            <form id="hotel-booking-form">
+                <div class="form-group form-group-full">
+                    <label for="room-select">Available Room Number</label>
+                    <select id="room-select" required disabled>
+                        <option value="">-- Select a room type on the left first --</option>
+                    </select>
+                </div>
+
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="check-in-date">Check-in Date</label>
+                        <input type="date" id="check-in-date" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="check-out-date">Check-out Date</label>
+                        <input type="date" id="check-out-date" required>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn-submit">Confirm Reservation</button>
+                <div id="status-box" class="status-msg"></div>
+            </form>
+        </div>
+
+    </div>
+</div>
+
+<script src="js/booking.js"></script>
+
+</body>
+</html>

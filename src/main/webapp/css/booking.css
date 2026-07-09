@@ -1,0 +1,222 @@
+
+.booking-page-body {
+    background-color: var(--bg);
+    min-height: 100vh;
+    padding: 2rem 2rem 4rem;
+}
+
+.booking-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.back-home {
+    display: inline-block;
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 1.5rem;
+    font-weight: 500;
+    transition: color 0.2s;
+}
+
+.back-home:hover {
+    color: var(--accent);
+}
+
+.booking-main-title {
+    font-size: 2.2rem;
+    color: var(--ink);
+    margin-bottom: 0.3rem;
+}
+
+.booking-sub {
+    font-size: 14px;
+    color: var(--muted);
+    margin-bottom: 2.5rem;
+}
+
+.booking-split-container {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 2.5rem;
+    align-items: start;
+}
+
+.left-rooms-side {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+.room-type-card {
+    display: grid;
+    grid-template-columns: 180px 1fr;
+    background: var(--card);
+    border: 1px solid var(--border);
+    cursor: pointer;
+    overflow: hidden;
+    transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+}
+
+.room-type-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.04);
+}
+
+.room-type-card.selected {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 2px var(--accent);
+}
+
+.card-image-side {
+    height: 100%;
+    min-height: 150px;
+    background-size: cover;
+    background-position: center;
+}
+
+.img-deluxe { background-image: url("../images/room-base.png"); }
+.img-suite { background-image: url("../images/room-comfort.png"); }
+.img-villa { background-image: url("../images/room-premium.png"); }
+
+.card-info-side {
+    padding: 1.2rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.room-meta h3 {
+    font-size: 1.25rem;
+    margin-bottom: 0.3rem;
+    color: var(--ink);
+}
+
+.room-meta p {
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.4;
+}
+
+.room-price-tag {
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: var(--accent);
+    margin-top: 0.6rem;
+}
+
+.room-price-tag span {
+    font-size: 11px;
+    color: var(--muted);
+    font-weight: 400;
+}
+
+.right-form-side {
+    background: var(--card);
+    border: 1px solid var(--border);
+    padding: 2.2rem;
+    position: sticky;
+    top: 2rem;
+}
+
+.form-title {
+    font-size: 1.3rem;
+    margin-bottom: 1.5rem;
+    color: var(--ink);
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 0.7rem;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.2rem;
+    margin-bottom: 1.2rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+.form-group-full {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    font-size: 10px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-weight: 600;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    background: var(--card);
+    border: 1px solid var(--border);
+    color: var(--ink);
+    font-family: inherit;
+    font-size: 13px;
+    padding: 0.7rem;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    border-color: var(--accent);
+}
+
+.btn-submit {
+    width: 100%;
+    padding: 0.9rem;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    background: var(--accent);
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.btn-submit:hover {
+    background: var(--accent-dark);
+}
+
+.status-msg {
+    margin-top: 1.2rem;
+    padding: 1rem;
+    font-size: 13px;
+    font-weight: 500;
+    display: none;
+    line-height: 1.4;
+    border-radius: 4px;
+}
+
+.status-success { background-color: #f0fdf4; color: #166534; border: 1px solid #bbf7d0; }
+.status-error { background-color: #fef2f2; color: #991b1b; border: 1px solid #fecaca; }
+
+@media (max-width: 900px) {
+    .booking-split-container {
+        grid-template-columns: 1fr;
+    }
+    .right-form-side {
+        position: static;
+    }
+}
+
+@media (max-width: 550px) {
+    .room-type-card {
+        grid-template-columns: 1fr;
+    }
+    .card-image-side {
+        height: 140px;
+    }
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+}
