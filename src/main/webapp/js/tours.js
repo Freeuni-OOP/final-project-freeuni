@@ -1,5 +1,25 @@
 (function () {
-    // Thumbnail gallery switcher
+    var select = document.getElementById('t-tour');
+    var toursLoaded = false;
+
+    function loadTours() {
+        if (!select) return;
+        fetch('/api/tours')
+            .then(function (res) { return res.ok ? res.json() : []; })
+            .then(function (tours) {
+                for (var i = 0; i < tours.length; i++) {
+                    var opt = document.createElement('option');
+                    opt.value = tours[i].id;
+                    opt.textContent = tours[i].name;
+                    select.appendChild(opt);
+                }
+                toursLoaded = true;
+            })
+            .catch(function () { });
+    }
+
+    loadTours();
+
     document.querySelectorAll('.tour-gallery').forEach(function (gallery) {
         var mainImg = gallery.querySelector('.tour-gallery-main');
         gallery.querySelectorAll('.tour-thumb').forEach(function (thumb) {
@@ -11,22 +31,30 @@
         });
     });
 
-    // "Book This Tour" buttons pre-fill the select
+    function selectTourByName(name) {
+        if (!select) return;
+        for (var i = 0; i < select.options.length; i++) {
+            if (select.options[i].text === name) {
+                select.selectedIndex = i;
+                return;
+            }
+        }
+    }
+
     document.querySelectorAll('.tour-book-btn').forEach(function (btn) {
-        btn.addEventListener('click', function (e) {
+        btn.addEventListener('click', function () {
             var tourName = btn.dataset.tour;
-            var select = document.getElementById('t-tour');
-            if (!select) return;
-            for (var i = 0; i < select.options.length; i++) {
-                if (select.options[i].text.startsWith(tourName)) {
-                    select.selectedIndex = i;
-                    break;
-                }
+            if (toursLoaded) {
+                selectTourByName(tourName);
+            } else {
+                fetch('/api/tours')
+                    .then(function (res) { return res.ok ? res.json() : []; })
+                    .then(function () { selectTourByName(tourName); })
+                    .catch(function () { });
             }
         });
     });
 
-    // Date min = today
     var dateInput = document.getElementById('t-date');
     if (dateInput) {
         var today = new Date();
@@ -36,7 +64,6 @@
         dateInput.min = yyyy + '-' + mm + '-' + dd;
     }
 
-    // Form submission
     var form = document.getElementById('tours-form');
     if (!form) return;
 

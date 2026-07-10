@@ -12,26 +12,6 @@ import java.util.List;
 
 public class TourDao {
 
-    public Integer getTourIdByName(String tourName) throws SQLException {
-
-        String query = "SELECT id FROM tours WHERE name = ?";
-
-        try (Connection connection = DataSource.getConnection();
-             PreparedStatement statement = connection.prepareStatement(query)) {
-
-            statement.setString(1, tourName);
-
-            try (ResultSet result = statement.executeQuery()) {
-
-                if (result.next()) {
-                    return result.getInt("id");
-                }
-            }
-        }
-
-        return null;
-    }
-
     public Integer getMaxGuests(int tourId) throws SQLException {
 
         String query = "SELECT max_guests FROM tours WHERE id = ?";

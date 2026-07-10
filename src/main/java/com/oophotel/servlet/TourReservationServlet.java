@@ -44,11 +44,11 @@ public class TourReservationServlet extends HttpServlet {
         String email = request.getParameter("email");
         String guestValue = request.getParameter("guests");
         String dateValue = request.getParameter("date");
-        String selectedTour = request.getParameter("tourId");
+        String tourIdValue = request.getParameter("tourId");
         String specialRequests = request.getParameter("notes");
 
         if (isBlank(fullName) || isBlank(email) || isBlank(guestValue)
-                || isBlank(dateValue) || isBlank(selectedTour)) {
+                || isBlank(dateValue) || isBlank(tourIdValue)) {
             JsonUtil.write(response,
                     HttpServletResponse.SC_BAD_REQUEST,
                     "Please fill in all required fields.");
@@ -56,6 +56,7 @@ public class TourReservationServlet extends HttpServlet {
         }
 
         int guestCount;
+        int tourId;
         Date tourDate;
 
         try {
@@ -67,12 +68,13 @@ public class TourReservationServlet extends HttpServlet {
                 guestCount = Integer.parseInt(guestValue.split(" ")[0]);
             }
 
+            tourId = Integer.parseInt(tourIdValue.trim());
             tourDate = Date.valueOf(dateValue);
 
         } catch (IllegalArgumentException e) {
             JsonUtil.write(response,
                     HttpServletResponse.SC_BAD_REQUEST,
-                    "Please check the date and number of guests.");
+                    "Please check the tour, date and number of guests.");
             return;
         }
 
@@ -83,24 +85,7 @@ public class TourReservationServlet extends HttpServlet {
             return;
         }
 
-        String tourName;
-
-        if (selectedTour.contains(" — GEL")) {
-            tourName = selectedTour.substring(0, selectedTour.indexOf(" — GEL")).trim();
-        } else {
-            tourName = selectedTour.trim();
-        }
-
         try {
-
-            Integer tourId = tourDao.getTourIdByName(tourName);
-
-            if (tourId == null) {
-                JsonUtil.write(response,
-                        HttpServletResponse.SC_BAD_REQUEST,
-                        "That tour could not be found.");
-                return;
-            }
 
             Integer maxGuests = tourDao.getMaxGuests(tourId);
 
