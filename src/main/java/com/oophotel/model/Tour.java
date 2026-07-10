@@ -5,14 +5,16 @@ public class Tour {
     private int id;
     private String name;
     private String description;
+    private int maxGuests;
 
     public Tour() {
     }
 
-    public Tour(int id, String name, String description) {
+    public Tour(int id, String name, String description, int maxGuests) {
         this.id = id;
         this.name = name;
         this.description = description;
+        this.maxGuests = maxGuests;
     }
 
     public int getId() {
@@ -37,5 +39,13 @@ public class Tour {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public int getMaxGuests() {
+        return maxGuests;
+    }
+
+    public void setMaxGuests(int maxGuests) {
+        this.maxGuests = maxGuests;
     }
 }

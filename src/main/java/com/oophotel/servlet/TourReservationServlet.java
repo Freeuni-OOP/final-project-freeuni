@@ -29,27 +29,60 @@ public class TourReservationServlet extends HttpServlet {
         request.setCharacterEncoding("UTF-8");
 
         HttpSession session = request.getSession(false);
+        Object userIdAttr = session == null ? null : session.getAttribute("userId");
 
+        if (userIdAttr == null) {
+            JsonUtil.write(response,
+                    HttpServletResponse.SC_UNAUTHORIZED,
+                    "Please sign in to book a tour.");
+            return;
+        }
 
-        int userId = ((Number) session.getAttribute("userId")).intValue();
+        int userId = ((Number) userIdAttr).intValue();
 
         String fullName = request.getParameter("name");
         String email = request.getParameter("email");
-
-        String guestValue = request.getParameter("guests").trim();
-        int guestCount;
-
-        if (guestValue.startsWith("6+")) {
-            guestCount = 6;
-        } else {
-            guestCount = Integer.parseInt(guestValue.split(" ")[0]);
-        }
-
-        Date tourDate = Date.valueOf(request.getParameter("date"));
+        String guestValue = request.getParameter("guests");
+        String dateValue = request.getParameter("date");
+        String selectedTour = request.getParameter("tourId");
         String specialRequests = request.getParameter("notes");
 
+        if (isBlank(fullName) || isBlank(email) || isBlank(guestValue)
+                || isBlank(dateValue) || isBlank(selectedTour)) {
+            JsonUtil.write(response,
+                    HttpServletResponse.SC_BAD_REQUEST,
+                    "Please fill in all required fields.");
+            return;
+        }
 
-        String selectedTour = request.getParameter("tourId");
+        int guestCount;
+        Date tourDate;
+
+        try {
+            guestValue = guestValue.trim();
+
+            if (guestValue.startsWith("6+")) {
+                guestCount = 6;
+            } else {
+                guestCount = Integer.parseInt(guestValue.split(" ")[0]);
+            }
+
+            tourDate = Date.valueOf(dateValue);
+
+        } catch (IllegalArgumentException e) {
+            JsonUtil.write(response,
+                    HttpServletResponse.SC_BAD_REQUEST,
+                    "Please check the date and number of guests.");
+            return;
+        }
+
+        if (guestCount < 1) {
+            JsonUtil.write(response,
+                    HttpServletResponse.SC_BAD_REQUEST,
+                    "Please choose at least one guest.");
+            return;
+        }
+
         String tourName;
 
         if (selectedTour.contains(" — GEL")) {
@@ -69,7 +102,16 @@ public class TourReservationServlet extends HttpServlet {
                 return;
             }
 
-            if (!reservationDao.hasCapacity(tourId, tourDate, guestCount)) {
+            Integer maxGuests = tourDao.getMaxGuests(tourId);
+
+            if (maxGuests == null) {
+                JsonUtil.write(response,
+                        HttpServletResponse.SC_BAD_REQUEST,
+                        "That tour could not be found.");
+                return;
+            }
+
+            if (!reservationDao.hasCapacity(tourId, tourDate, guestCount, maxGuests)) {
                 JsonUtil.write(response,
                         HttpServletResponse.SC_CONFLICT,
                         "Sorry, that tour is fully booked for this date. Please choose another date.");
@@ -99,5 +141,9 @@ public class TourReservationServlet extends HttpServlet {
                     HttpServletResponse.SC_INTERNAL_SERVER_ERROR,
                     "Something went wrong. Please try again.");
         }
+    }
+
+    private boolean isBlank(String value) {
+        return value == null || value.isBlank();
     }
 }

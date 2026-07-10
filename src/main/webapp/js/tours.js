@@ -86,7 +86,7 @@
             })
             .then(function (result) {
                 if (result.status === 200) {
-                    status.textContent = '✓ Your place is reserved! A confirmation and full itinerary have been sent to ' + email + '.';
+                    status.textContent = 'Your place is reserved. We look forward to seeing you.';
                     status.className = 'form-status success';
                     form.reset();
                 } else if (result.status === 401) {

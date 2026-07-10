@@ -11,8 +11,6 @@ import java.sql.SQLException;
 
 public class TourReservationDao {
 
-    private static final int MAX_GUESTS_PER_TOUR = 15;
-
     public int getBookedGuests(int tourId, Date tourDate) throws SQLException {
 
         String query = "SELECT COALESCE(SUM(guests), 0) FROM tour_reservations WHERE tour_id = ? AND tour_date = ?";
@@ -35,11 +33,11 @@ public class TourReservationDao {
         return bookedGuests;
     }
 
-    public boolean hasCapacity(int tourId, Date tourDate, int requestedGuests) throws SQLException {
+    public boolean hasCapacity(int tourId, Date tourDate, int requestedGuests, int maxGuests) throws SQLException {
 
         int currentGuests = getBookedGuests(tourId, tourDate);
 
-        return currentGuests + requestedGuests <= MAX_GUESTS_PER_TOUR;
+        return currentGuests + requestedGuests <= maxGuests;
     }
 
     public void save(TourReservation reservation) throws SQLException {
