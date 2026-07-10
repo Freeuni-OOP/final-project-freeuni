@@ -79,3 +79,15 @@ CREATE TABLE IF NOT EXISTS bookings (
 
 CREATE INDEX idx_bookings_room_dates ON bookings (room_id, check_in, check_out);
 CREATE INDEX idx_bookings_user ON bookings (user_id);
+
+-- Concierge requests
+CREATE TABLE IF NOT EXISTS concierge_requests (
+    id            INT AUTO_INCREMENT PRIMARY KEY,
+    name          VARCHAR(100)  NOT NULL,
+    email         VARCHAR(150)  NOT NULL,
+    type          VARCHAR(50)   NOT NULL,
+    request_date  DATE,
+    details       TEXT          NOT NULL,
+    status        VARCHAR(20)   NOT NULL DEFAULT 'PENDING',
+    created_at    TIMESTAMP     NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
