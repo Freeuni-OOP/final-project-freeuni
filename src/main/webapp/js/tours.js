@@ -48,26 +48,60 @@
         status.textContent = '';
         status.className = 'form-status';
 
-        var name   = document.getElementById('t-name').value.trim();
-        var email  = document.getElementById('t-email').value.trim();
-        var tour   = document.getElementById('t-tour').value;
-        var date   = document.getElementById('t-date').value;
+        var name    = document.getElementById('t-name').value.trim();
+        var email   = document.getElementById('t-email').value.trim();
+        var tourSel = document.getElementById('t-tour');
+        var tourId  = tourSel.value;
+        var date    = document.getElementById('t-date').value;
+        var guestsEl = document.getElementById('t-guests');
+        var guests  = guestsEl ? guestsEl.value : 1;
+        var notesEl = document.getElementById('t-notes');
+        var notes   = notesEl ? notesEl.value.trim() : '';
 
         if (!name) { showError('Please enter your full name.'); return; }
         if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { showError('Please enter a valid email address.'); return; }
-        if (!tour)  { showError('Please select a tour.'); return; }
+        if (!tourId)  { showError('Please select a tour.'); return; }
         if (!date)  { showError('Please choose a date.'); return; }
 
         btn.disabled = true;
         btn.textContent = 'Reserving…';
 
-        setTimeout(function () {
-            btn.disabled = false;
-            btn.textContent = 'Reserve My Place';
-            status.textContent = '✓ Your place is reserved! A confirmation and full itinerary have been sent to ' + email + '.';
-            status.className = 'form-status success';
-            form.reset();
-        }, 1400);
+        var formData = new URLSearchParams();
+        formData.append('name', name);
+        formData.append('email', email);
+        formData.append('tourId', tourId);
+        formData.append('date', date);
+        formData.append('guests', guests);
+        formData.append('notes', notes);
+
+        fetch('/api/reserve-tour', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+            body: formData
+        })
+            .then(function (res) {
+                return res.json().then(function (data) {
+                    return { status: res.status, data: data };
+                });
+            })
+            .then(function (result) {
+                if (result.status === 200) {
+                    status.textContent = '✓ Your place is reserved! A confirmation and full itinerary have been sent to ' + email + '.';
+                    status.className = 'form-status success';
+                    form.reset();
+                } else if (result.status === 401) {
+                    showError('Please sign in to book a tour.');
+                } else {
+                    showError(result.data.error || 'Could not complete reservation.');
+                }
+            })
+            .catch(function () {
+                showError('Something went wrong. Please try again.');
+            })
+            .finally(function () {
+                btn.disabled = false;
+                btn.textContent = 'Reserve My Place';
+            });
     });
 
     function showError(msg) {

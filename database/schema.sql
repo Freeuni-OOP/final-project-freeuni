@@ -80,26 +80,53 @@ CREATE TABLE IF NOT EXISTS bookings (
 CREATE INDEX idx_bookings_room_dates ON bookings (room_id, check_in, check_out);
 CREATE INDEX idx_bookings_user ON bookings (user_id);
 
--- Concierge requests
-CREATE TABLE IF NOT EXISTS concierge_requests (
-    id            INT AUTO_INCREMENT PRIMARY KEY,
-    name          VARCHAR(100)  NOT NULL,
-    email         VARCHAR(150)  NOT NULL,
-    type          VARCHAR(50)   NOT NULL,
-    request_date  DATE,
-    details       TEXT          NOT NULL,
-    status        VARCHAR(20)   NOT NULL DEFAULT 'PENDING',
-    created_at    TIMESTAMP     NOT NULL DEFAULT CURRENT_TIMESTAMP
+
+-- bar
+CREATE TABLE bar_table_reservations (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT NOT NULL,
+    full_name VARCHAR(100) NOT NULL,
+    guests INT NOT NULL,
+    reservation_date DATE NOT NULL,
+    reservation_time TIME NOT NULL,
+    notes VARCHAR(255),
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (user_id) REFERENCES users(id)
 );
 
--- Dining reservations
-CREATE TABLE IF NOT EXISTS dining_reservations (
-    id                INT AUTO_INCREMENT PRIMARY KEY,
-    name              VARCHAR(100) NOT NULL,
-    guests            VARCHAR(10)  NOT NULL,
-    reservation_date  DATE         NOT NULL,
-    reservation_time  TIME         NOT NULL,
-    notes             TEXT,
-    status            VARCHAR(20)  NOT NULL DEFAULT 'CONFIRMED',
-    created_at        TIMESTAMP    NOT NULL DEFAULT CURRENT_TIMESTAMP
+
+-- tours
+CREATE TABLE IF NOT EXISTS tours (
+     id          INT AUTO_INCREMENT PRIMARY KEY,
+     name        VARCHAR(100) NOT NULL,
+     description TEXT
 );
+
+INSERT INTO tours (name, description) VALUES
+      ('Kazbegi & Gergeti Trinity Church', 'Full day trip to Kazbegi and the Gergeti Trinity Church, lunch included.'),
+      ('Gomis Mta — Above the Clouds', 'Overnight camping trip to Gomis Mta with a guided hike and campfire dinner.'),
+      ('Tusheti — Ancient Towers & Wild Mountains', '3 day trip to Tusheti over the Abano Pass, accommodation and meals included.'),
+      ('Kass Land — Georgia''s Adventure Park', 'Full day at Kass Land adventure park, entry wristband included.'),
+      ('Mtatsminda — Tbilisi from Above', 'Half day trip up the Mtatsminda funicular with city views and amusement park.'),
+      ('Horseback Riding in the Georgian Highlands', 'Half day guided horseback trail through mountain meadows and forest.'),
+      ('Free University of Tbilisi', 'Half day guided tour of the Free University campus, coffee included.');
+
+
+CREATE TABLE IF NOT EXISTS tour_reservations (
+     id               INT AUTO_INCREMENT PRIMARY KEY,
+     user_id          INT NOT NULL,
+     tour_id          INT NOT NULL,
+     full_name        VARCHAR(100) NOT NULL,
+     email            VARCHAR(150) NOT NULL,
+     guests           INT NOT NULL,
+     tour_date        DATE NOT NULL,
+     special_requests VARCHAR(255),
+     created_at       TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+
+     FOREIGN KEY (user_id) REFERENCES users(id),
+     FOREIGN KEY (tour_id) REFERENCES tours(id)
+);
+
+CREATE INDEX idx_tour_reservations_tour_date ON tour_reservations (tour_id, tour_date);
+
+
