@@ -130,3 +130,27 @@ CREATE TABLE IF NOT EXISTS tour_reservations (
 CREATE INDEX idx_tour_reservations_tour_date ON tour_reservations (tour_id, tour_date);
 
 
+CREATE TABLE IF NOT EXISTS dining_reservations (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    guests VARCHAR(20) NOT NULL,
+    reservation_date DATE NOT NULL,
+    reservation_time TIME NOT NULL,
+    notes VARCHAR(255),
+    status VARCHAR(20) NOT NULL DEFAULT 'CONFIRMED',
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+
+CREATE TABLE IF NOT EXISTS concierge_requests (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    email VARCHAR(150) NOT NULL,
+    type VARCHAR(50),
+    request_date DATE,
+    details TEXT,
+    status VARCHAR(20) NOT NULL DEFAULT 'PENDING',
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+
