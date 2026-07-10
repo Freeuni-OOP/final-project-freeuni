@@ -80,18 +80,6 @@ CREATE TABLE IF NOT EXISTS bookings (
 CREATE INDEX idx_bookings_room_dates ON bookings (room_id, check_in, check_out);
 CREATE INDEX idx_bookings_user ON bookings (user_id);
 
-
--- bar
-CREATE TABLE bar_table_reservations (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    user_id INT NOT NULL,
-    full_name VARCHAR(100) NOT NULL,
-    guests INT NOT NULL,
-    reservation_date DATE NOT NULL,
-    reservation_time TIME NOT NULL,
-    notes VARCHAR(255),
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (user_id) REFERENCES users(id)
 -- Concierge requests
 CREATE TABLE IF NOT EXISTS concierge_requests (
     id            INT AUTO_INCREMENT PRIMARY KEY,
@@ -103,6 +91,39 @@ CREATE TABLE IF NOT EXISTS concierge_requests (
     status        VARCHAR(20)   NOT NULL DEFAULT 'PENDING',
     created_at    TIMESTAMP     NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
+
+-- Spa reservations
+CREATE TABLE IF NOT EXISTS spa_reservations (
+    id                INT AUTO_INCREMENT PRIMARY KEY,
+    name              VARCHAR(100) NOT NULL,
+    email             VARCHAR(150) NOT NULL,
+    treatment         VARCHAR(200) NOT NULL,
+    reservation_date  DATE         NOT NULL,
+    reservation_time  TIME         NOT NULL,
+    guests            INT          NOT NULL DEFAULT 1,
+    notes             TEXT,
+    status            VARCHAR(20)  NOT NULL DEFAULT 'CONFIRMED',
+    created_at        TIMESTAMP    NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE INDEX idx_spa_date_time ON spa_reservations (reservation_date, reservation_time);
+
+-- Pool reservations
+CREATE TABLE IF NOT EXISTS pool_reservations (
+    id                INT AUTO_INCREMENT PRIMARY KEY,
+    name              VARCHAR(100) NOT NULL,
+    email             VARCHAR(150) NOT NULL,
+    pool              VARCHAR(100) NOT NULL,
+    activity          VARCHAR(100),
+    reservation_date  DATE         NOT NULL,
+    reservation_time  TIME         NOT NULL,
+    guests            INT          NOT NULL DEFAULT 1,
+    notes             TEXT,
+    status            VARCHAR(20)  NOT NULL DEFAULT 'CONFIRMED',
+    created_at        TIMESTAMP    NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE INDEX idx_pool_date_time ON pool_reservations (pool, reservation_date, reservation_time);
 
 -- Dining reservations
 CREATE TABLE IF NOT EXISTS dining_reservations (
