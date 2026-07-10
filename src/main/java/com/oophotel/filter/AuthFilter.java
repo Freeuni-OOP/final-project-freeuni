@@ -23,7 +23,8 @@ public class AuthFilter implements Filter {
             "/api/db-check",
             "/api/auth/login",
             "/api/auth/register",
-            "/api/contact"
+            "/api/contact",
+            "/api/tours"
     );
 
     @Override
