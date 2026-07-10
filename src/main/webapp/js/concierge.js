@@ -2,6 +2,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   const form = document.getElementById('concierge-form');
   const status = document.getElementById('cr-status');
+  const submitBtn = form ? form.querySelector('.form-submit') : null;
 
   function setError(input, message) {
     input.classList.add('invalid');
@@ -26,6 +27,7 @@ document.addEventListener('DOMContentLoaded', function () {
       const name = document.getElementById('cr-name');
       const email = document.getElementById('cr-email');
       const type = document.getElementById('cr-type');
+      const date = document.getElementById('cr-date');
       const details = document.getElementById('cr-details');
       let valid = true;
 
@@ -40,9 +42,37 @@ document.addEventListener('DOMContentLoaded', function () {
 
       if (!valid) return;
 
-      status.textContent = 'Request sent! Our concierge will be in touch shortly.';
-      status.className = 'form-status success';
-      form.reset();
+      submitBtn.disabled = true;
+
+      const body = new URLSearchParams();
+      body.append('name', name.value);
+      body.append('email', email.value);
+      body.append('type', type.value);
+      body.append('date', date.value);
+      body.append('details', details.value);
+
+      fetch('/api/concierge', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: body
+      })
+        .then(function (res) {
+          if (res.ok) return res.json();
+          throw new Error('Request failed');
+        })
+        .then(function () {
+          status.textContent = 'Request sent! Our concierge will be in touch shortly.';
+          status.className = 'form-status success';
+          form.reset();
+        })
+        .catch(function (err) {
+          console.log(err);
+          status.textContent = 'Something went wrong. Please try again.';
+          status.className = 'form-status error';
+        })
+        .finally(function () {
+          setTimeout(function () { submitBtn.disabled = false; }, 1500);
+        });
     });
   }
 
