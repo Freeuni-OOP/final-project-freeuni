@@ -91,3 +91,15 @@ CREATE TABLE IF NOT EXISTS concierge_requests (
     status        VARCHAR(20)   NOT NULL DEFAULT 'PENDING',
     created_at    TIMESTAMP     NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
+
+-- Dining reservations
+CREATE TABLE IF NOT EXISTS dining_reservations (
+    id                INT AUTO_INCREMENT PRIMARY KEY,
+    name              VARCHAR(100) NOT NULL,
+    guests            VARCHAR(10)  NOT NULL,
+    reservation_date  DATE         NOT NULL,
+    reservation_time  TIME         NOT NULL,
+    notes             TEXT,
+    status            VARCHAR(20)  NOT NULL DEFAULT 'CONFIRMED',
+    created_at        TIMESTAMP    NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
