@@ -80,6 +80,18 @@ CREATE TABLE IF NOT EXISTS bookings (
 CREATE INDEX idx_bookings_room_dates ON bookings (room_id, check_in, check_out);
 CREATE INDEX idx_bookings_user ON bookings (user_id);
 
+
+-- bar
+CREATE TABLE bar_table_reservations (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT NOT NULL,
+    full_name VARCHAR(100) NOT NULL,
+    guests INT NOT NULL,
+    reservation_date DATE NOT NULL,
+    reservation_time TIME NOT NULL,
+    notes VARCHAR(255),
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (user_id) REFERENCES users(id)
 -- Concierge requests
 CREATE TABLE IF NOT EXISTS concierge_requests (
     id            INT AUTO_INCREMENT PRIMARY KEY,
