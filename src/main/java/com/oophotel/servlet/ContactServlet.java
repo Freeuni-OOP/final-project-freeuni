@@ -17,6 +17,7 @@ public class ContactServlet extends HttpServlet {
             throws ServletException, IOException {
 
         request.setCharacterEncoding("UTF-8");
+        response.setContentType("application/json");
 
         String name = request.getParameter("name");
         String email = request.getParameter("email");
@@ -24,8 +25,20 @@ public class ContactServlet extends HttpServlet {
         String subject = request.getParameter("subject");
         String message = request.getParameter("message");
 
-        if(phone == null){
-            phone = "";
+        if (isBlank(name) || isBlank(email) || isBlank(subject) || isBlank(message)) {
+            response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
+            response.getWriter().print("{\"error\":\"Missing required fields\"}");
+            return;
+        }
+
+        if (!email.contains("@")) {
+            response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
+            response.getWriter().print("{\"error\":\"Invalid email address\"}");
+            return;
+        }
+
+        if (isBlank(phone)) {
+            phone = "—";
         }
 
         String emailSubject = "Contact Form Message: " + subject;
@@ -35,18 +48,20 @@ public class ContactServlet extends HttpServlet {
         body += "Phone: " + phone + "\n\n";
         body += "Message: \n" + message;
 
-        response.setContentType("application/json");
-
-        try{
+        try {
             EmailSender.send(emailSubject, body);
 
             response.getWriter().print("{\"success\":true}");
-        }catch(MessagingException e){
+        } catch (MessagingException e) {
             e.printStackTrace();
 
             response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
 
             response.getWriter().print("{\"error\":\"Failed to send email\"}");
         }
+    }
+
+    private boolean isBlank(String value) {
+        return value == null || value.isBlank();
     }
 }
