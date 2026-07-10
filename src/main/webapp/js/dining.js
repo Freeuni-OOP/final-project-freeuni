@@ -30,6 +30,7 @@ document.addEventListener('DOMContentLoaded', function () {
   // reservation form
   const form = document.getElementById('dining-reservation-form');
   const status = document.getElementById('dr-status');
+  const submitBtn = form ? form.querySelector('.form-submit') : null;
 
   const dateInput = document.getElementById('dr-date');
   if (dateInput) {
@@ -56,6 +57,7 @@ document.addEventListener('DOMContentLoaded', function () {
       const guests = document.getElementById('dr-guests');
       const date = document.getElementById('dr-date');
       const time = document.getElementById('dr-time');
+      const notes = document.getElementById('dr-notes');
       let valid = true;
 
       [name, guests, date, time].forEach(clearError);
@@ -69,9 +71,37 @@ document.addEventListener('DOMContentLoaded', function () {
 
       if (!valid) return;
 
-      status.textContent = 'Table reserved! We look forward to seeing you.';
-      status.className = 'form-status success';
-      form.reset();
+      submitBtn.disabled = true;
+
+      const body = new URLSearchParams();
+      body.append('name', name.value);
+      body.append('guests', guests.value);
+      body.append('date', date.value);
+      body.append('time', time.value);
+      body.append('notes', notes.value);
+
+      fetch('/api/dining/reservations', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: body
+      })
+        .then(function (res) {
+          if (res.ok) return res.json();
+          throw new Error('Request failed');
+        })
+        .then(function () {
+          status.textContent = 'Table reserved! We look forward to seeing you.';
+          status.className = 'form-status success';
+          form.reset();
+        })
+        .catch(function (err) {
+          console.log(err);
+          status.textContent = 'Something went wrong. Please try again.';
+          status.className = 'form-status error';
+        })
+        .finally(function () {
+          setTimeout(function () { submitBtn.disabled = false; }, 1500);
+        });
     });
   }
 
