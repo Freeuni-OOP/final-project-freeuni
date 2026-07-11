@@ -48,7 +48,8 @@ public class RegisterServlet extends HttpServlet {
             JsonUtil.write(res, 400, "Invalid email address"); return;
         }
         if (!PasswordUtil.isStrong(body.password)) {
-            JsonUtil.write(res, 400, "Password must be at least " + PasswordUtil.MIN_LENGTH + " characters"); return;
+            JsonUtil.write(res, 400, "Password must be at least " + PasswordUtil.MIN_LENGTH
+                    + " characters and include a letter and a number"); return;
         }
 
         Date dob = null;
@@ -74,7 +75,8 @@ public class RegisterServlet extends HttpServlet {
             JsonUtil.write(res, 201, publicMap(user));
 
         } catch (SQLException e) {
-            JsonUtil.write(res, 500, "Database error: " + e.getMessage());
+            e.printStackTrace();
+            JsonUtil.write(res, 500, "Something went wrong. Please try again.");
         }
     }
 

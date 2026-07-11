@@ -189,8 +189,8 @@ document.addEventListener('DOMContentLoaded', function () {
       setError(birth, 'You must be at least 18 years old to register.');
       valid = false;
     }
-    if (password.value.length < 8) {
-      setError(password, 'Password must be at least 8 characters.');
+    if (password.value.length < 8 || !/[A-Za-z]/.test(password.value) || !/\d/.test(password.value)) {
+      setError(password, 'Password must be at least 8 characters and include a letter and a number.');
       valid = false;
     }
     if (confirm.value === '' || confirm.value !== password.value) {

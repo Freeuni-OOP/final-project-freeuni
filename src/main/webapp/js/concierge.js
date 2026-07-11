@@ -57,10 +57,16 @@ document.addEventListener('DOMContentLoaded', function () {
         body: body
       })
         .then(function (res) {
+          if (res.status === 401) {
+            status.textContent = 'Please sign in to send a concierge request.';
+            status.className = 'form-status error';
+            return null;
+          }
           if (res.ok) return res.json();
           throw new Error('Request failed');
         })
-        .then(function () {
+        .then(function (data) {
+          if (data === null) return;
           status.textContent = 'Request sent! Our concierge will be in touch shortly.';
           status.className = 'form-status success';
           form.reset();

@@ -39,23 +39,42 @@ public class BookingDao {
         if (!checkOut.isAfter(checkIn)) {
             throw new IllegalArgumentException("check_out must be after check_in");
         }
-        String sql = "INSERT INTO bookings (room_id, user_id, check_in, check_out, status) " +
+        String overlapSql = "SELECT 1 FROM bookings " +
+                "WHERE room_id = ? AND status = 'CONFIRMED' " +
+                "AND check_in < ? AND check_out > ? " +
+                "LIMIT 1 FOR UPDATE";
+        String insertSql = "INSERT INTO bookings (room_id, user_id, check_in, check_out, status) " +
                 "VALUES (?, ?, ?, ?, 'CONFIRMED')";
         try (Connection connection = DataSource.getConnection()) {
-            if (hasOverlap(roomId, checkIn, checkOut)) {
-                throw new IllegalStateException("Room is already booked for the selected dates");
-            }
-            try (PreparedStatement statement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
-                statement.setInt(1, roomId);
-                statement.setInt(2, userId);
-                statement.setDate(3, Date.valueOf(checkIn));
-                statement.setDate(4, Date.valueOf(checkOut));
-                statement.executeUpdate();
-                try (ResultSet keys = statement.getGeneratedKeys()) {
-                    keys.next();
-                    int id = keys.getInt(1);
-                    return new Booking(id, roomId, userId, checkIn, checkOut, "CONFIRMED");
+            connection.setAutoCommit(false);
+            try {
+                try (PreparedStatement check = connection.prepareStatement(overlapSql)) {
+                    check.setInt(1, roomId);
+                    check.setDate(2, Date.valueOf(checkOut));
+                    check.setDate(3, Date.valueOf(checkIn));
+                    try (ResultSet rs = check.executeQuery()) {
+                        if (rs.next()) {
+                            throw new IllegalStateException("Room is already booked for the selected dates");
+                        }
+                    }
                 }
+                try (PreparedStatement statement = connection.prepareStatement(insertSql, Statement.RETURN_GENERATED_KEYS)) {
+                    statement.setInt(1, roomId);
+                    statement.setInt(2, userId);
+                    statement.setDate(3, Date.valueOf(checkIn));
+                    statement.setDate(4, Date.valueOf(checkOut));
+                    statement.executeUpdate();
+                    try (ResultSet keys = statement.getGeneratedKeys()) {
+                        keys.next();
+                        int id = keys.getInt(1);
+                        Booking booking = new Booking(id, roomId, userId, checkIn, checkOut, "CONFIRMED");
+                        connection.commit();
+                        return booking;
+                    }
+                }
+            } catch (SQLException | RuntimeException e) {
+                connection.rollback();
+                throw e;
             }
         }
     }

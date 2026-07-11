@@ -1,5 +1,25 @@
 (function () {
-    // Thumbnail gallery switcher
+    var select = document.getElementById('t-tour');
+    var toursLoaded = false;
+
+    function loadTours() {
+        if (!select) return;
+        fetch('/api/tours')
+            .then(function (res) { return res.ok ? res.json() : []; })
+            .then(function (tours) {
+                for (var i = 0; i < tours.length; i++) {
+                    var opt = document.createElement('option');
+                    opt.value = tours[i].id;
+                    opt.textContent = tours[i].name;
+                    select.appendChild(opt);
+                }
+                toursLoaded = true;
+            })
+            .catch(function () { });
+    }
+
+    loadTours();
+
     document.querySelectorAll('.tour-gallery').forEach(function (gallery) {
         var mainImg = gallery.querySelector('.tour-gallery-main');
         gallery.querySelectorAll('.tour-thumb').forEach(function (thumb) {
@@ -11,22 +31,30 @@
         });
     });
 
-    // "Book This Tour" buttons pre-fill the select
+    function selectTourByName(name) {
+        if (!select) return;
+        for (var i = 0; i < select.options.length; i++) {
+            if (select.options[i].text === name) {
+                select.selectedIndex = i;
+                return;
+            }
+        }
+    }
+
     document.querySelectorAll('.tour-book-btn').forEach(function (btn) {
-        btn.addEventListener('click', function (e) {
+        btn.addEventListener('click', function () {
             var tourName = btn.dataset.tour;
-            var select = document.getElementById('t-tour');
-            if (!select) return;
-            for (var i = 0; i < select.options.length; i++) {
-                if (select.options[i].text.startsWith(tourName)) {
-                    select.selectedIndex = i;
-                    break;
-                }
+            if (toursLoaded) {
+                selectTourByName(tourName);
+            } else {
+                fetch('/api/tours')
+                    .then(function (res) { return res.ok ? res.json() : []; })
+                    .then(function () { selectTourByName(tourName); })
+                    .catch(function () { });
             }
         });
     });
 
-    // Date min = today
     var dateInput = document.getElementById('t-date');
     if (dateInput) {
         var today = new Date();
@@ -36,7 +64,6 @@
         dateInput.min = yyyy + '-' + mm + '-' + dd;
     }
 
-    // Form submission
     var form = document.getElementById('tours-form');
     if (!form) return;
 
@@ -48,26 +75,60 @@
         status.textContent = '';
         status.className = 'form-status';
 
-        var name   = document.getElementById('t-name').value.trim();
-        var email  = document.getElementById('t-email').value.trim();
-        var tour   = document.getElementById('t-tour').value;
-        var date   = document.getElementById('t-date').value;
+        var name    = document.getElementById('t-name').value.trim();
+        var email   = document.getElementById('t-email').value.trim();
+        var tourSel = document.getElementById('t-tour');
+        var tourId  = tourSel.value;
+        var date    = document.getElementById('t-date').value;
+        var guestsEl = document.getElementById('t-guests');
+        var guests  = guestsEl ? guestsEl.value : 1;
+        var notesEl = document.getElementById('t-notes');
+        var notes   = notesEl ? notesEl.value.trim() : '';
 
         if (!name) { showError('Please enter your full name.'); return; }
         if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { showError('Please enter a valid email address.'); return; }
-        if (!tour)  { showError('Please select a tour.'); return; }
+        if (!tourId)  { showError('Please select a tour.'); return; }
         if (!date)  { showError('Please choose a date.'); return; }
 
         btn.disabled = true;
         btn.textContent = 'Reserving…';
 
-        setTimeout(function () {
-            btn.disabled = false;
-            btn.textContent = 'Reserve My Place';
-            status.textContent = '✓ Your place is reserved! A confirmation and full itinerary have been sent to ' + email + '.';
-            status.className = 'form-status success';
-            form.reset();
-        }, 1400);
+        var formData = new URLSearchParams();
+        formData.append('name', name);
+        formData.append('email', email);
+        formData.append('tourId', tourId);
+        formData.append('date', date);
+        formData.append('guests', guests);
+        formData.append('notes', notes);
+
+        fetch('/api/reserve-tour', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+            body: formData
+        })
+            .then(function (res) {
+                return res.json().then(function (data) {
+                    return { status: res.status, data: data };
+                });
+            })
+            .then(function (result) {
+                if (result.status === 200) {
+                    status.textContent = 'Your place is reserved. We look forward to seeing you.';
+                    status.className = 'form-status success';
+                    form.reset();
+                } else if (result.status === 401) {
+                    showError('Please sign in to book a tour.');
+                } else {
+                    showError(result.data.error || 'Could not complete reservation.');
+                }
+            })
+            .catch(function () {
+                showError('Something went wrong. Please try again.');
+            })
+            .finally(function () {
+                btn.disabled = false;
+                btn.textContent = 'Reserve My Place';
+            });
     });
 
     function showError(msg) {

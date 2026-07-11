@@ -65,7 +65,8 @@ public class LoginServlet extends HttpServlet {
             JsonUtil.write(res, 200, data);
 
         } catch (SQLException e) {
-            JsonUtil.write(res, 500, "Database error: " + e.getMessage());
+            e.printStackTrace();
+            JsonUtil.write(res, 500, "Something went wrong. Please try again.");
         }
     }
 
