@@ -128,9 +128,40 @@ CREATE TABLE IF NOT EXISTS tour_reservations (
      FOREIGN KEY (tour_id) REFERENCES tours(id)
 );
 
-CREATE INDEX idx_tour_reservations_tour_date ON tour_reservations (tour_id, tour_date);
+-- Spa reservations
+CREATE TABLE IF NOT EXISTS spa_reservations (
+    id                INT AUTO_INCREMENT PRIMARY KEY,
+    name              VARCHAR(100) NOT NULL,
+    email             VARCHAR(150) NOT NULL,
+    treatment         VARCHAR(200) NOT NULL,
+    reservation_date  DATE         NOT NULL,
+    reservation_time  TIME         NOT NULL,
+    guests            INT          NOT NULL DEFAULT 1,
+    notes             TEXT,
+    status            VARCHAR(20)  NOT NULL DEFAULT 'CONFIRMED',
+    created_at        TIMESTAMP    NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
 
+CREATE INDEX idx_spa_date_time ON spa_reservations (reservation_date, reservation_time);
 
+-- Pool reservations
+CREATE TABLE IF NOT EXISTS pool_reservations (
+    id                INT AUTO_INCREMENT PRIMARY KEY,
+    name              VARCHAR(100) NOT NULL,
+    email             VARCHAR(150) NOT NULL,
+    pool              VARCHAR(100) NOT NULL,
+    activity          VARCHAR(100),
+    reservation_date  DATE         NOT NULL,
+    reservation_time  TIME         NOT NULL,
+    guests            INT          NOT NULL DEFAULT 1,
+    notes             TEXT,
+    status            VARCHAR(20)  NOT NULL DEFAULT 'CONFIRMED',
+    created_at        TIMESTAMP    NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE INDEX idx_pool_date_time ON pool_reservations (pool, reservation_date, reservation_time);
+
+-- Dining reservations
 CREATE TABLE IF NOT EXISTS dining_reservations (
     id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(100) NOT NULL,

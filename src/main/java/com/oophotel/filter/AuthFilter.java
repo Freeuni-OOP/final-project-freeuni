@@ -24,7 +24,8 @@ public class AuthFilter implements Filter {
             "/api/auth/login",
             "/api/auth/register",
             "/api/contact",
-            "/api/tours"
+            "/api/spa/reservations",
+            "/api/pool/reservations"
     );
 
     @Override

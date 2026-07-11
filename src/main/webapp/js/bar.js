@@ -16,13 +16,13 @@ document.addEventListener('DOMContentLoaded', function () {
   if (menuEl) {
     menuEl.innerHTML = menu.map(function (item) {
       return '<div class="menu-item">' +
-        '<div class="menu-item-top">' +
-        '<span class="menu-item-name">' + item.name + '</span>' +
-        '<span class="menu-item-price">' + item.price + '</span>' +
-        '</div>' +
-        '<p class="menu-item-desc">' + item.description + '</p>' +
-        '<span class="menu-item-tag">' + item.category + '</span>' +
-        '</div>';
+          '<div class="menu-item-top">' +
+          '<span class="menu-item-name">' + item.name + '</span>' +
+          '<span class="menu-item-price">' + item.price + '</span>' +
+          '</div>' +
+          '<p class="menu-item-desc">' + item.description + '</p>' +
+          '<span class="menu-item-tag">' + item.category + '</span>' +
+          '</div>';
     }).join('');
   }
 
@@ -37,63 +37,153 @@ document.addEventListener('DOMContentLoaded', function () {
   if (eventsEl) {
     eventsEl.innerHTML = events.map(function (ev) {
       return '<div class="event-card">' +
-        '<div class="event-date">' +
-        '<div class="event-day">' + ev.day + '</div>' +
-        '<div class="event-month">' + ev.month + '</div>' +
-        '</div>' +
-        '<div class="event-info">' +
-        '<h3>' + ev.title + '</h3>' +
-        '<p>' + ev.description + '</p>' +
-        '</div>' +
-        '</div>';
+          '<div class="event-date">' +
+          '<div class="event-day">' + ev.day + '</div>' +
+          '<div class="event-month">' + ev.month + '</div>' +
+          '</div>' +
+          '<div class="event-info">' +
+          '<h3>' + ev.title + '</h3>' +
+          '<p>' + ev.description + '</p>' +
+          '</div>' +
+          '</div>';
     }).join('');
   }
 
-  // reservation form
-  const form = document.getElementById('bar-reservation-form');
-  const status = document.getElementById('br-status');
+  // bar reservation
+  const reservationForm = document.getElementById("bar-reservation-form");
+  const statusMessage = document.getElementById("br-status");
 
-  const dateInput = document.getElementById('br-date');
+  const dateInput = document.getElementById("br-date");
+
   if (dateInput) {
-    dateInput.min = new Date().toISOString().split('T')[0];
+    dateInput.min = new Date().toISOString().split("T")[0];
   }
 
-  function setError(input, message) {
-    input.classList.add('invalid');
-    const el = document.querySelector('.field-error[data-for="' + input.id + '"]');
-    if (el) el.textContent = message;
+  function showError(input, message) {
+    input.classList.add("invalid");
+
+    const error = document.querySelector(
+        `.field-error[data-for="${input.id}"]`
+    );
+
+    if (error) {
+      error.textContent = message;
+    }
   }
 
   function clearError(input) {
-    input.classList.remove('invalid');
-    const el = document.querySelector('.field-error[data-for="' + input.id + '"]');
-    if (el) el.textContent = '';
+    input.classList.remove("invalid");
+
+    const error = document.querySelector(
+        `.field-error[data-for="${input.id}"]`
+    );
+
+    if (error) {
+      error.textContent = "";
+    }
   }
 
-  if (form) {
-    form.addEventListener('submit', function (e) {
-      e.preventDefault();
+  if (reservationForm) {
 
-      const name = document.getElementById('br-name');
-      const guests = document.getElementById('br-guests');
-      const date = document.getElementById('br-date');
-      const time = document.getElementById('br-time');
-      let valid = true;
+    reservationForm.addEventListener("submit", (event) => {
+
+      event.preventDefault();
+
+      const name = document.getElementById("br-name");
+      const guests = document.getElementById("br-guests");
+      const date = document.getElementById("br-date");
+      const time = document.getElementById("br-time");
+      const notes = document.getElementById("br-notes");
+
+      let isValid = true;
 
       [name, guests, date, time].forEach(clearError);
-      status.textContent = '';
-      status.className = 'form-status';
 
-      if (name.value.trim().length < 2) { setError(name, 'Enter your name.'); valid = false; }
-      if (!guests.value) { setError(guests, 'Select number of guests.'); valid = false; }
-      if (!date.value) { setError(date, 'Choose a date.'); valid = false; }
-      if (!time.value) { setError(time, 'Choose a time.'); valid = false; }
+      statusMessage.textContent = "";
+      statusMessage.className = "form-status";
 
-      if (!valid) return;
+      if (name.value.trim().length < 2) {
+        showError(name, "Enter your name.");
+        isValid = false;
+      }
 
-      status.textContent = 'Table reserved! We will confirm by email.';
-      status.className = 'form-status success';
-      form.reset();
+      if (!guests.value) {
+        showError(guests, "Select number of guests.");
+        isValid = false;
+      }
+
+      if (!date.value) {
+        showError(date, "Choose a date.");
+        isValid = false;
+      }
+
+      if (!time.value) {
+        showError(time, "Choose a time.");
+        isValid = false;
+      }
+
+      if (!isValid) {
+        return;
+      }
+
+      const submitButton = reservationForm.querySelector(".form-submit");
+      submitButton.disabled = true;
+
+      const formData = new URLSearchParams();
+
+      formData.append("name", name.value.trim());
+      formData.append("guests", guests.value);
+      formData.append("date", date.value);
+      formData.append("time", time.value);
+      formData.append("notes", notes.value);
+
+      fetch("/api/reserve-bar-table", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded"
+        },
+        body: formData
+      })
+          .then(response => {
+            return response.json().then(data => ({
+              status: response.status,
+              data: data
+            }));
+          })
+          .then(result => {
+
+            if (result.status === 200) {
+
+              statusMessage.textContent =
+                  "Table reserved! We will confirm by email.";
+              statusMessage.className = "form-status success";
+
+              reservationForm.reset();
+
+            } else if (result.status === 401) {
+
+              statusMessage.textContent =
+                  "Please sign in to reserve a table.";
+              statusMessage.className = "form-status error";
+
+            } else {
+
+              statusMessage.textContent =
+                  result.data.error || "Could not complete reservation.";
+              statusMessage.className = "form-status error";
+            }
+
+          })
+          .catch(() => {
+
+            statusMessage.textContent =
+                "Something went wrong. Please try again.";
+            statusMessage.className = "form-status error";
+
+          })
+          .finally(() => {
+            submitButton.disabled = false;
+          });
     });
   }
 
