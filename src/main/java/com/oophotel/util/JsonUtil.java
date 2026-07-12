@@ -1,16 +1,33 @@
 package com.oophotel.util;
 
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.google.gson.JsonObject;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 import java.util.stream.Collectors;
 
 public final class JsonUtil {
 
-    private static final Gson GSON = new Gson();
+    private static final Gson GSON = new GsonBuilder()
+            .registerTypeAdapter(LocalDate.class,
+                    (com.google.gson.JsonSerializer<LocalDate>) (src, t, ctx) ->
+                            new com.google.gson.JsonPrimitive(src.format(DateTimeFormatter.ISO_LOCAL_DATE)))
+            .registerTypeAdapter(LocalTime.class,
+                    (com.google.gson.JsonSerializer<LocalTime>) (src, t, ctx) ->
+                            new com.google.gson.JsonPrimitive(src.format(DateTimeFormatter.ISO_LOCAL_TIME)))
+            .registerTypeAdapter(LocalDate.class,
+                    (com.google.gson.JsonDeserializer<LocalDate>) (json, t, ctx) ->
+                            LocalDate.parse(json.getAsString()))
+            .registerTypeAdapter(LocalTime.class,
+                    (com.google.gson.JsonDeserializer<LocalTime>) (json, t, ctx) ->
+                            LocalTime.parse(json.getAsString()))
+            .create();
 
     private JsonUtil() {}
 

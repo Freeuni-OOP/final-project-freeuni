@@ -71,6 +71,7 @@ public class PoolServlet extends HttpServlet {
         } catch (IllegalStateException e) {
             JsonUtil.write(response, 409, e.getMessage());
         } catch (Exception e) {
+            e.printStackTrace();
             JsonUtil.write(response, 500, "Could not save reservation");
         }
     }
@@ -83,6 +84,7 @@ public class PoolServlet extends HttpServlet {
             List<PoolReservation> list = isBlank(email) ? dao.findAll() : dao.findByEmail(email.trim());
             JsonUtil.write(response, 200, list);
         } catch (Exception e) {
+            e.printStackTrace();
             JsonUtil.write(response, 500, "Could not load reservations");
         }
     }
